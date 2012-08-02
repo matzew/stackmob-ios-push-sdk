@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'stackmob-ios-sdk' target in the 'stackmob-ios-sdk' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

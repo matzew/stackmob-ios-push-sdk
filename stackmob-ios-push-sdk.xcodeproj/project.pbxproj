@@ -1,0 +1,641 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11678F47A9EA44B2AD2C372D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1E56D1B3EB4DE7BDACFF7A /* libPods.a */; };
+		8C33AF20158C1E0100BE2570 /* libstackmob-ios-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4E61580389800C38962 /* libstackmob-ios-sdk.a */; };
+		8C33B000158C241D00BE2570 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3E7067158AA67400E22505 /* CoreData.framework */; };
+		8C33B002158C242600BE2570 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3E7071158AEBB000E22505 /* CoreLocation.framework */; };
+		8C33B04915912B1F00BE2570 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4F71580389800C38962 /* SenTestingKit.framework */; };
+		8C33B04A15912B1F00BE2570 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4F91580389800C38962 /* UIKit.framework */; };
+		8C33B04B15912B1F00BE2570 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4E91580389800C38962 /* Foundation.framework */; };
+		8C33B05115912B1F00BE2570 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C33B04F15912B1F00BE2570 /* InfoPlist.strings */; };
+		8C33B0671591367100BE2570 /* libstackmob-ios-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4E61580389800C38962 /* libstackmob-ios-sdk.a */; };
+		8C33B068159136CE00BE2570 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3E7067158AA67400E22505 /* CoreData.framework */; };
+		8C33B069159136CE00BE2570 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3E7071158AEBB000E22505 /* CoreLocation.framework */; };
+		8C3E7068158AA67400E22505 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3E7067158AA67400E22505 /* CoreData.framework */; };
+		8C3E7072158AEBB000E22505 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3E7071158AEBB000E22505 /* CoreLocation.framework */; };
+		8CC414881587A428004EA957 /* SMPushClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CC414861587A428004EA957 /* SMPushClient.h */; };
+		8CC414891587A428004EA957 /* SMPushClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC414871587A428004EA957 /* SMPushClient.m */; };
+		8CC4148C1587A43D004EA957 /* SMClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4148B1587A43D004EA957 /* SMClientSpec.m */; };
+		8CC414A915881960004EA957 /* libPods-stackmob-ios-sdkTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC414A815881960004EA957 /* libPods-stackmob-ios-sdkTests.a */; };
+		8CCCE4EA1580389800C38962 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4E91580389800C38962 /* Foundation.framework */; };
+		8CCCE4F81580389800C38962 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4F71580389800C38962 /* SenTestingKit.framework */; };
+		8CCCE4FA1580389800C38962 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4F91580389800C38962 /* UIKit.framework */; };
+		8CCCE4FB1580389800C38962 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4E91580389800C38962 /* Foundation.framework */; };
+		8CCCE5041580389800C38962 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8CCCE5021580389800C38962 /* InfoPlist.strings */; };
+		8CD0DF03159277830087801F /* KWSpec+WaitFor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CD0DF02159277830087801F /* KWSpec+WaitFor.m */; };
+		A5527654150846F1BAF7D502 /* libPods-integration tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 605B6D27590C45BD84549778 /* libPods-integration tests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8CCCE4FC1580389800C38962 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CCCE4DD1580389800C38962 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8CCCE4E51580389800C38962;
+			remoteInfo = "stackmob-ios-sdk";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1C66BB747CC543ECA80B6D69 /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		605B6D27590C45BD84549778 /* libPods-integration tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-integration tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C33AF17158BDA8A00BE2570 /* StackMobPush.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackMobPush.h; sourceTree = "<group>"; };
+		8C33B04815912B1F00BE2570 /* integration tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "integration tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C33B04E15912B1F00BE2570 /* integration tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "integration tests-Info.plist"; sourceTree = "<group>"; };
+		8C33B05015912B1F00BE2570 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8C33B05515912B1F00BE2570 /* integration tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "integration tests-Prefix.pch"; sourceTree = "<group>"; };
+		8C3E7067158AA67400E22505 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8C3E7071158AEBB000E22505 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8C4A8D6F15928D7800FC1319 /* StackMobCredentials.plist.example */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = StackMobCredentials.plist.example; sourceTree = "<group>"; };
+		8CC414861587A428004EA957 /* SMPushClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPushClient.h; sourceTree = "<group>"; };
+		8CC414871587A428004EA957 /* SMPushClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPushClient.m; sourceTree = "<group>"; };
+		8CC4148B1587A43D004EA957 /* SMClientSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMClientSpec.m; sourceTree = "<group>"; };
+		8CC414A815881960004EA957 /* libPods-stackmob-ios-sdkTests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-stackmob-ios-sdkTests.a"; path = "Pods/build/Release-iphoneos/libPods-stackmob-ios-sdkTests.a"; sourceTree = "<group>"; };
+		8CCCE4E61580389800C38962 /* libstackmob-ios-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libstackmob-ios-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CCCE4E91580389800C38962 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8CCCE4ED1580389800C38962 /* stackmob-ios-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "stackmob-ios-sdk-Prefix.pch"; sourceTree = "<group>"; };
+		8CCCE4F61580389800C38962 /* stackmob-ios-sdkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "stackmob-ios-sdkTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CCCE4F71580389800C38962 /* SenTestingKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		8CCCE4F91580389800C38962 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		8CCCE5011580389800C38962 /* stackmob-ios-sdkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "stackmob-ios-sdkTests-Info.plist"; sourceTree = "<group>"; };
+		8CCCE5031580389800C38962 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8CD0DF01159277830087801F /* KWSpec+WaitFor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KWSpec+WaitFor.h"; sourceTree = "<group>"; };
+		8CD0DF02159277830087801F /* KWSpec+WaitFor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KWSpec+WaitFor.m"; sourceTree = "<group>"; };
+		8CFB465A158135EA005C7C69 /* Pods-stackmob-ios-sdkTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Pods-stackmob-ios-sdkTests.xcconfig"; path = "Pods/Pods-stackmob-ios-sdkTests.xcconfig"; sourceTree = "<group>"; };
+		9FC525CBE9284EC88F303CAD /* Pods-integration tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-integration tests.xcconfig"; path = "Pods/Pods-integration tests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		CC1E56D1B3EB4DE7BDACFF7A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8C33B04415912B1F00BE2570 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C33B068159136CE00BE2570 /* CoreData.framework in Frameworks */,
+				8C33B069159136CE00BE2570 /* CoreLocation.framework in Frameworks */,
+				8C33B0671591367100BE2570 /* libstackmob-ios-sdk.a in Frameworks */,
+				8C33B04915912B1F00BE2570 /* SenTestingKit.framework in Frameworks */,
+				8C33B04A15912B1F00BE2570 /* UIKit.framework in Frameworks */,
+				8C33B04B15912B1F00BE2570 /* Foundation.framework in Frameworks */,
+				A5527654150846F1BAF7D502 /* libPods-integration tests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CCCE4E31580389800C38962 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C3E7072158AEBB000E22505 /* CoreLocation.framework in Frameworks */,
+				8C3E7068158AA67400E22505 /* CoreData.framework in Frameworks */,
+				8CCCE4EA1580389800C38962 /* Foundation.framework in Frameworks */,
+				11678F47A9EA44B2AD2C372D /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CCCE4F21580389800C38962 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C33B002158C242600BE2570 /* CoreLocation.framework in Frameworks */,
+				8C33B000158C241D00BE2570 /* CoreData.framework in Frameworks */,
+				8C33AF20158C1E0100BE2570 /* libstackmob-ios-sdk.a in Frameworks */,
+				8CC414A915881960004EA957 /* libPods-stackmob-ios-sdkTests.a in Frameworks */,
+				8CCCE4F81580389800C38962 /* SenTestingKit.framework in Frameworks */,
+				8CCCE4FA1580389800C38962 /* UIKit.framework in Frameworks */,
+				8CCCE4FB1580389800C38962 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8C33B04C15912B1F00BE2570 /* Integration Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8C33B04D15912B1F00BE2570 /* Supporting Files */,
+				8CD0DF01159277830087801F /* KWSpec+WaitFor.h */,
+				8CD0DF02159277830087801F /* KWSpec+WaitFor.m */,
+			);
+			name = "Integration Tests";
+			path = "integration tests";
+			sourceTree = "<group>";
+		};
+		8C33B04D15912B1F00BE2570 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8C33B04E15912B1F00BE2570 /* integration tests-Info.plist */,
+				8C33B04F15912B1F00BE2570 /* InfoPlist.strings */,
+				8C33B05515912B1F00BE2570 /* integration tests-Prefix.pch */,
+				8C4A8D6F15928D7800FC1319 /* StackMobCredentials.plist.example */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8CCCE4DB1580389800C38962 = {
+			isa = PBXGroup;
+			children = (
+				8CCCE4EB1580389800C38962 /* Classes */,
+				8CCCE4FF1580389800C38962 /* Tests */,
+				8C33B04C15912B1F00BE2570 /* Integration Tests */,
+				8CCCE4E81580389800C38962 /* Frameworks */,
+				8CCCE4E71580389800C38962 /* Products */,
+				1C66BB747CC543ECA80B6D69 /* Pods.xcconfig */,
+				8CFB465A158135EA005C7C69 /* Pods-stackmob-ios-sdkTests.xcconfig */,
+				9FC525CBE9284EC88F303CAD /* Pods-integration tests.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		8CCCE4E71580389800C38962 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8CCCE4E61580389800C38962 /* libstackmob-ios-sdk.a */,
+				8CCCE4F61580389800C38962 /* stackmob-ios-sdkTests.octest */,
+				8C33B04815912B1F00BE2570 /* integration tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8CCCE4E81580389800C38962 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C3E7071158AEBB000E22505 /* CoreLocation.framework */,
+				8C3E7067158AA67400E22505 /* CoreData.framework */,
+				8CCCE4E91580389800C38962 /* Foundation.framework */,
+				8CCCE4F71580389800C38962 /* SenTestingKit.framework */,
+				8CCCE4F91580389800C38962 /* UIKit.framework */,
+				CC1E56D1B3EB4DE7BDACFF7A /* libPods.a */,
+				8CC414A815881960004EA957 /* libPods-stackmob-ios-sdkTests.a */,
+				605B6D27590C45BD84549778 /* libPods-integration tests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8CCCE4EB1580389800C38962 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8CCCE4EC1580389800C38962 /* Supporting Files */,
+				8C33AF17158BDA8A00BE2570 /* StackMobPush.h */,
+				8CC414861587A428004EA957 /* SMPushClient.h */,
+				8CC414871587A428004EA957 /* SMPushClient.m */,
+			);
+			name = Classes;
+			path = SDK;
+			sourceTree = "<group>";
+		};
+		8CCCE4EC1580389800C38962 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8CCCE4ED1580389800C38962 /* stackmob-ios-sdk-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8CCCE4FF1580389800C38962 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8CCCE5001580389800C38962 /* Supporting Files */,
+				8CC4148B1587A43D004EA957 /* SMClientSpec.m */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		8CCCE5001580389800C38962 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8CCCE5011580389800C38962 /* stackmob-ios-sdkTests-Info.plist */,
+				8CCCE5021580389800C38962 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8CCCE4E41580389800C38962 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CC414881587A428004EA957 /* SMPushClient.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8C33B04715912B1F00BE2570 /* integration tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C33B05815912B1F00BE2570 /* Build configuration list for PBXNativeTarget "integration tests" */;
+			buildPhases = (
+				8C33B04315912B1F00BE2570 /* Sources */,
+				8C33B04415912B1F00BE2570 /* Frameworks */,
+				8C33B04515912B1F00BE2570 /* Resources */,
+				85231500DAC948FB876E0BA1 /* Copy Pods Resources */,
+				8C33B04615912B1F00BE2570 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "integration tests";
+			productName = "integration tests";
+			productReference = 8C33B04815912B1F00BE2570 /* integration tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		8CCCE4E51580389800C38962 /* stackmob-ios-sdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CCCE50A1580389800C38962 /* Build configuration list for PBXNativeTarget "stackmob-ios-sdk" */;
+			buildPhases = (
+				8CCCE4E21580389800C38962 /* Sources */,
+				8CCCE4E31580389800C38962 /* Frameworks */,
+				8CCCE4E41580389800C38962 /* Headers */,
+				53A8BE67F9DA45B59A60DBFE /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "stackmob-ios-sdk";
+			productName = "stackmob-ios-sdk";
+			productReference = 8CCCE4E61580389800C38962 /* libstackmob-ios-sdk.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		8CCCE4F51580389800C38962 /* stackmob-ios-sdkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CCCE50D1580389800C38962 /* Build configuration list for PBXNativeTarget "stackmob-ios-sdkTests" */;
+			buildPhases = (
+				8CCCE4F11580389800C38962 /* Sources */,
+				8CCCE4F21580389800C38962 /* Frameworks */,
+				8CCCE4F31580389800C38962 /* Resources */,
+				53A8BE67F9DA45B59A60DBFE /* Copy Pods Resources */,
+				8CCCE4F41580389800C38962 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8CCCE4FD1580389800C38962 /* PBXTargetDependency */,
+			);
+			name = "stackmob-ios-sdkTests";
+			productName = "stackmob-ios-sdkTests";
+			productReference = 8CCCE4F61580389800C38962 /* stackmob-ios-sdkTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8CCCE4DD1580389800C38962 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SM;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = StackMob;
+			};
+			buildConfigurationList = 8CCCE4E01580389800C38962 /* Build configuration list for PBXProject "stackmob-ios-push-sdk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8CCCE4DB1580389800C38962;
+			productRefGroup = 8CCCE4E71580389800C38962 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8CCCE4E51580389800C38962 /* stackmob-ios-sdk */,
+				8CCCE4F51580389800C38962 /* stackmob-ios-sdkTests */,
+				8C33B04715912B1F00BE2570 /* integration tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8C33B04515912B1F00BE2570 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C33B05115912B1F00BE2570 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CCCE4F31580389800C38962 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CCCE5041580389800C38962 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		53A8BE67F9DA45B59A60DBFE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85231500DAC948FB876E0BA1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-integration tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C33B04615912B1F00BE2570 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CCCE4F41580389800C38962 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8C33B04315912B1F00BE2570 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CD0DF03159277830087801F /* KWSpec+WaitFor.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CCCE4E21580389800C38962 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CC414891587A428004EA957 /* SMPushClient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CCCE4F11580389800C38962 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CC4148C1587A43D004EA957 /* SMClientSpec.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8CCCE4FD1580389800C38962 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8CCCE4E51580389800C38962 /* stackmob-ios-sdk */;
+			targetProxy = 8CCCE4FC1580389800C38962 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8C33B04F15912B1F00BE2570 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C33B05015912B1F00BE2570 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8CCCE5021580389800C38962 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CCCE5031580389800C38962 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8C33B05615912B1F00BE2570 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FC525CBE9284EC88F303CAD /* Pods-integration tests.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "integration tests/integration tests-Prefix.pch";
+				INFOPLIST_FILE = "integration tests/integration tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		8C33B05715912B1F00BE2570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FC525CBE9284EC88F303CAD /* Pods-integration tests.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "integration tests/integration tests-Prefix.pch";
+				INFOPLIST_FILE = "integration tests/integration tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		8CCCE5081580389800C38962 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8CCCE5091580389800C38962 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8CCCE50B1580389800C38962 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C66BB747CC543ECA80B6D69 /* Pods.xcconfig */;
+			buildSettings = {
+				DSTROOT = /tmp/stackmob_ios_sdk.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SDK/stackmob-ios-sdk-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos5.1;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8CCCE50C1580389800C38962 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C66BB747CC543ECA80B6D69 /* Pods.xcconfig */;
+			buildSettings = {
+				DSTROOT = /tmp/stackmob_ios_sdk.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SDK/stackmob-ios-sdk-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos5.1;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		8CCCE50E1580389800C38962 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CFB465A158135EA005C7C69 /* Pods-stackmob-ios-sdkTests.xcconfig */;
+			buildSettings = {
+				DSTROOT = /tmp/xcodeproj.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SDK/stackmob-ios-sdk-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "Tests/stackmob-ios-sdkTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TEST_AFTER_BUILD = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		8CCCE50F1580389800C38962 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CFB465A158135EA005C7C69 /* Pods-stackmob-ios-sdkTests.xcconfig */;
+			buildSettings = {
+				DSTROOT = /tmp/xcodeproj.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SDK/stackmob-ios-sdk-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "Tests/stackmob-ios-sdkTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TEST_AFTER_BUILD = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8C33B05815912B1F00BE2570 /* Build configuration list for PBXNativeTarget "integration tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C33B05615912B1F00BE2570 /* Debug */,
+				8C33B05715912B1F00BE2570 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8CCCE4E01580389800C38962 /* Build configuration list for PBXProject "stackmob-ios-push-sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CCCE5081580389800C38962 /* Debug */,
+				8CCCE5091580389800C38962 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8CCCE50A1580389800C38962 /* Build configuration list for PBXNativeTarget "stackmob-ios-sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CCCE50B1580389800C38962 /* Debug */,
+				8CCCE50C1580389800C38962 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8CCCE50D1580389800C38962 /* Build configuration list for PBXNativeTarget "stackmob-ios-sdkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CCCE50E1580389800C38962 /* Debug */,
+				8CCCE50F1580389800C38962 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8CCCE4DD1580389800C38962 /* Project object */;
+}
