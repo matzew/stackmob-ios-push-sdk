@@ -22,7 +22,7 @@
 		8C3E7072158AEBB000E22505 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3E7071158AEBB000E22505 /* CoreLocation.framework */; };
 		8CC414881587A428004EA957 /* SMPushClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CC414861587A428004EA957 /* SMPushClient.h */; };
 		8CC414891587A428004EA957 /* SMPushClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC414871587A428004EA957 /* SMPushClient.m */; };
-		8CC4148C1587A43D004EA957 /* SMClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4148B1587A43D004EA957 /* SMClientSpec.m */; };
+		8CC4148C1587A43D004EA957 /* SMPushClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4148B1587A43D004EA957 /* SMPushClientSpec.m */; };
 		8CC414A915881960004EA957 /* libPods-stackmob-ios-sdkTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC414A815881960004EA957 /* libPods-stackmob-ios-sdkTests.a */; };
 		8CCCE4EA1580389800C38962 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4E91580389800C38962 /* Foundation.framework */; };
 		8CCCE4F81580389800C38962 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4F71580389800C38962 /* SenTestingKit.framework */; };
@@ -56,7 +56,7 @@
 		8C4A8D6F15928D7800FC1319 /* StackMobCredentials.plist.example */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = StackMobCredentials.plist.example; sourceTree = "<group>"; };
 		8CC414861587A428004EA957 /* SMPushClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPushClient.h; sourceTree = "<group>"; };
 		8CC414871587A428004EA957 /* SMPushClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPushClient.m; sourceTree = "<group>"; };
-		8CC4148B1587A43D004EA957 /* SMClientSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMClientSpec.m; sourceTree = "<group>"; };
+		8CC4148B1587A43D004EA957 /* SMPushClientSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPushClientSpec.m; sourceTree = "<group>"; };
 		8CC414A815881960004EA957 /* libPods-stackmob-ios-sdkTests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-stackmob-ios-sdkTests.a"; path = "Pods/build/Release-iphoneos/libPods-stackmob-ios-sdkTests.a"; sourceTree = "<group>"; };
 		8CCCE4E61580389800C38962 /* libstackmob-ios-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libstackmob-ios-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CCCE4E91580389800C38962 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -201,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				8CCCE5001580389800C38962 /* Supporting Files */,
-				8CC4148B1587A43D004EA957 /* SMClientSpec.m */,
+				8CC4148B1587A43D004EA957 /* SMPushClientSpec.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -416,7 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CC4148C1587A43D004EA957 /* SMClientSpec.m in Sources */,
+				8CC4148C1587A43D004EA957 /* SMPushClientSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
