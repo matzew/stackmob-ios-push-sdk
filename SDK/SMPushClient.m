@@ -16,7 +16,9 @@
 
 #import "SMPushClient.h"
 #import "SMPushToken.h"
-#import "STLOAuthClient.h"
+#import "SMOAuth1Client.h"
+#import "AFJSONRequestOperation.h"
+#import "SMJSONRequestOperation.h"
 
 static SMPushClient *defaultClient = nil;
 
@@ -26,7 +28,7 @@ static SMPushClient *defaultClient = nil;
 @property(nonatomic, readwrite, copy) NSString *publicKey;
 @property(nonatomic, readwrite, copy) NSString *privateKey;
 @property(nonatomic, readwrite, copy) NSString *host;
-@property(nonatomic, retain) STLOAuthClient *oauthClient;
+@property(nonatomic, retain) SMOAuth1Client *oauthClient;
 
 @end
 
@@ -52,7 +54,7 @@ static SMPushClient *defaultClient = nil;
         self.privateKey = privateKey;
         self.host = pushHost;
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@", pushHost]];
-        self.oauthClient = [[STLOAuthClient alloc] initWithBaseURL:url consumerKey:publicKey secret:privateKey];
+        self.oauthClient = [[SMOAuth1Client alloc] initWithBaseURL:url consumerKey:publicKey secret:privateKey];
         NSString *acceptHeader = [NSString stringWithFormat:@"application/vnd.stackmob+json; version=%@", appAPIVersion];
         [self.oauthClient setDefaultHeader:@"Accept" value:acceptHeader];
         [self.oauthClient setParameterEncoding:AFJSONParameterEncoding];
@@ -91,12 +93,21 @@ static SMPushClient *defaultClient = nil;
                           tokenDict, @"token",
                           overwrite, @"overwrite",
                           nil];
+    NSURLRequest *request = [self.oauthClient requestWithMethod:@"POST" path:@"register_device_token_universal" parameters:args];
+  
+    AFJSONRequestOperation *op = [SMJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        successBlock();
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        failureBlock([NSError errorWithDomain:@"SMError" code:[response statusCode] userInfo:JSON]);
+    }];
+    [self.oauthClient enqueueHTTPRequestOperation:op];
     
 }
 
 - (void)broadcastMessage:(NSDictionary *)message onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
 {
     NSDictionary *args = [NSDictionary dictionaryWithObject:message forKey:@"kvPairs"];
+    
 }
 
 - (void)sendMessage:(NSDictionary *)message toUsers:(NSArray *)users onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
@@ -137,6 +148,14 @@ static SMPushClient *defaultClient = nil;
     NSString *tokenString = [self tokenStringFromToken:token];
     NSString *type = [self tokenTypeFromToken:token];
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:tokenString, @"token", type, @"type", nil];
+    NSURLRequest *request = [self.oauthClient requestWithMethod:@"POST" path:@"remove_token_universal" parameters:args];
+    
+    AFJSONRequestOperation *op = [SMJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        successBlock();
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        failureBlock([NSError errorWithDomain:@"SMError" code:[response statusCode] userInfo:JSON]);
+    }];
+    [self.oauthClient enqueueHTTPRequestOperation:op];
 }
 
 

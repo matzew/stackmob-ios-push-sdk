@@ -12,14 +12,25 @@
 		56404EF315CB0097009CCAC1 /* SMJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 56404EF115CB0097009CCAC1 /* SMJSONRequestOperation.m */; };
 		56404EF915CB4A5F009CCAC1 /* SMPushToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 56404EF715CB4A5F009CCAC1 /* SMPushToken.h */; };
 		56404EFA15CB4A5F009CCAC1 /* SMPushToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 56404EF815CB4A5F009CCAC1 /* SMPushToken.m */; };
-		8C33AF20158C1E0100BE2570 /* libstackmob-ios-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4E61580389800C38962 /* libstackmob-ios-sdk.a */; };
+		56404EFD15CC421F009CCAC1 /* SMOAuth1Client.h in Headers */ = {isa = PBXBuildFile; fileRef = 56404EFB15CC421F009CCAC1 /* SMOAuth1Client.h */; };
+		56404EFE15CC421F009CCAC1 /* SMOAuth1Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 56404EFC15CC421F009CCAC1 /* SMOAuth1Client.m */; };
+		56404EFF15CC421F009CCAC1 /* SMOAuth1Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 56404EFC15CC421F009CCAC1 /* SMOAuth1Client.m */; };
+		56404F0015CC421F009CCAC1 /* SMOAuth1Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 56404EFC15CC421F009CCAC1 /* SMOAuth1Client.m */; };
+		56404F0415CC47D9009CCAC1 /* SMPushClientIntegrationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 56404F0215CC47D9009CCAC1 /* SMPushClientIntegrationSpec.m */; };
+		56404F0515CC47D9009CCAC1 /* SMPushClientIntegrationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 56404F0215CC47D9009CCAC1 /* SMPushClientIntegrationSpec.m */; };
+		56404F0615CC47D9009CCAC1 /* SMPushClientIntegrationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 56404F0215CC47D9009CCAC1 /* SMPushClientIntegrationSpec.m */; };
+		56404F0915CC484D009CCAC1 /* SMIntegrationTestHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 56404F0715CC484D009CCAC1 /* SMIntegrationTestHelpers.h */; };
+		56404F0A15CC484D009CCAC1 /* SMIntegrationTestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 56404F0815CC484D009CCAC1 /* SMIntegrationTestHelpers.m */; };
+		56404F0B15CC484D009CCAC1 /* SMIntegrationTestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 56404F0815CC484D009CCAC1 /* SMIntegrationTestHelpers.m */; };
+		56404F0C15CC484D009CCAC1 /* SMIntegrationTestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 56404F0815CC484D009CCAC1 /* SMIntegrationTestHelpers.m */; };
+		8C33AF20158C1E0100BE2570 /* libstackmob-ios-push-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4E61580389800C38962 /* libstackmob-ios-push-sdk.a */; };
 		8C33B000158C241D00BE2570 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3E7067158AA67400E22505 /* CoreData.framework */; };
 		8C33B002158C242600BE2570 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3E7071158AEBB000E22505 /* CoreLocation.framework */; };
 		8C33B04915912B1F00BE2570 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4F71580389800C38962 /* SenTestingKit.framework */; };
 		8C33B04A15912B1F00BE2570 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4F91580389800C38962 /* UIKit.framework */; };
 		8C33B04B15912B1F00BE2570 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4E91580389800C38962 /* Foundation.framework */; };
 		8C33B05115912B1F00BE2570 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C33B04F15912B1F00BE2570 /* InfoPlist.strings */; };
-		8C33B0671591367100BE2570 /* libstackmob-ios-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4E61580389800C38962 /* libstackmob-ios-sdk.a */; };
+		8C33B0671591367100BE2570 /* libstackmob-ios-push-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCCE4E61580389800C38962 /* libstackmob-ios-push-sdk.a */; };
 		8C33B068159136CE00BE2570 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3E7067158AA67400E22505 /* CoreData.framework */; };
 		8C33B069159136CE00BE2570 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3E7071158AEBB000E22505 /* CoreLocation.framework */; };
 		8C3E7068158AA67400E22505 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3E7067158AA67400E22505 /* CoreData.framework */; };
@@ -53,6 +64,11 @@
 		56404EF115CB0097009CCAC1 /* SMJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMJSONRequestOperation.m; sourceTree = "<group>"; };
 		56404EF715CB4A5F009CCAC1 /* SMPushToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPushToken.h; sourceTree = "<group>"; };
 		56404EF815CB4A5F009CCAC1 /* SMPushToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPushToken.m; sourceTree = "<group>"; };
+		56404EFB15CC421F009CCAC1 /* SMOAuth1Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMOAuth1Client.h; sourceTree = "<group>"; };
+		56404EFC15CC421F009CCAC1 /* SMOAuth1Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMOAuth1Client.m; sourceTree = "<group>"; };
+		56404F0215CC47D9009CCAC1 /* SMPushClientIntegrationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPushClientIntegrationSpec.m; sourceTree = "<group>"; };
+		56404F0715CC484D009CCAC1 /* SMIntegrationTestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMIntegrationTestHelpers.h; sourceTree = "<group>"; };
+		56404F0815CC484D009CCAC1 /* SMIntegrationTestHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMIntegrationTestHelpers.m; sourceTree = "<group>"; };
 		605B6D27590C45BD84549778 /* libPods-integration tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-integration tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C33AF17158BDA8A00BE2570 /* StackMobPush.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackMobPush.h; sourceTree = "<group>"; };
 		8C33B04815912B1F00BE2570 /* integration tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "integration tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +82,7 @@
 		8CC414871587A428004EA957 /* SMPushClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPushClient.m; sourceTree = "<group>"; };
 		8CC4148B1587A43D004EA957 /* SMPushClientSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPushClientSpec.m; sourceTree = "<group>"; };
 		8CC414A815881960004EA957 /* libPods-stackmob-ios-sdkTests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-stackmob-ios-sdkTests.a"; path = "Pods/build/Release-iphoneos/libPods-stackmob-ios-sdkTests.a"; sourceTree = "<group>"; };
-		8CCCE4E61580389800C38962 /* libstackmob-ios-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libstackmob-ios-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CCCE4E61580389800C38962 /* libstackmob-ios-push-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libstackmob-ios-push-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CCCE4E91580389800C38962 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8CCCE4ED1580389800C38962 /* stackmob-ios-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "stackmob-ios-sdk-Prefix.pch"; sourceTree = "<group>"; };
 		8CCCE4F61580389800C38962 /* stackmob-ios-sdkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "stackmob-ios-sdkTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,7 +104,7 @@
 			files = (
 				8C33B068159136CE00BE2570 /* CoreData.framework in Frameworks */,
 				8C33B069159136CE00BE2570 /* CoreLocation.framework in Frameworks */,
-				8C33B0671591367100BE2570 /* libstackmob-ios-sdk.a in Frameworks */,
+				8C33B0671591367100BE2570 /* libstackmob-ios-push-sdk.a in Frameworks */,
 				8C33B04915912B1F00BE2570 /* SenTestingKit.framework in Frameworks */,
 				8C33B04A15912B1F00BE2570 /* UIKit.framework in Frameworks */,
 				8C33B04B15912B1F00BE2570 /* Foundation.framework in Frameworks */,
@@ -113,7 +129,7 @@
 			files = (
 				8C33B002158C242600BE2570 /* CoreLocation.framework in Frameworks */,
 				8C33B000158C241D00BE2570 /* CoreData.framework in Frameworks */,
-				8C33AF20158C1E0100BE2570 /* libstackmob-ios-sdk.a in Frameworks */,
+				8C33AF20158C1E0100BE2570 /* libstackmob-ios-push-sdk.a in Frameworks */,
 				8CC414A915881960004EA957 /* libPods-stackmob-ios-sdkTests.a in Frameworks */,
 				8CCCE4F81580389800C38962 /* SenTestingKit.framework in Frameworks */,
 				8CCCE4FA1580389800C38962 /* UIKit.framework in Frameworks */,
@@ -130,6 +146,9 @@
 				8C33B04D15912B1F00BE2570 /* Supporting Files */,
 				8CD0DF01159277830087801F /* KWSpec+WaitFor.h */,
 				8CD0DF02159277830087801F /* KWSpec+WaitFor.m */,
+				56404F0215CC47D9009CCAC1 /* SMPushClientIntegrationSpec.m */,
+				56404F0715CC484D009CCAC1 /* SMIntegrationTestHelpers.h */,
+				56404F0815CC484D009CCAC1 /* SMIntegrationTestHelpers.m */,
 			);
 			name = "Integration Tests";
 			path = "integration tests";
@@ -163,7 +182,7 @@
 		8CCCE4E71580389800C38962 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8CCCE4E61580389800C38962 /* libstackmob-ios-sdk.a */,
+				8CCCE4E61580389800C38962 /* libstackmob-ios-push-sdk.a */,
 				8CCCE4F61580389800C38962 /* stackmob-ios-sdkTests.octest */,
 				8C33B04815912B1F00BE2570 /* integration tests.octest */,
 			);
@@ -196,6 +215,8 @@
 				56404EF115CB0097009CCAC1 /* SMJSONRequestOperation.m */,
 				56404EF715CB4A5F009CCAC1 /* SMPushToken.h */,
 				56404EF815CB4A5F009CCAC1 /* SMPushToken.m */,
+				56404EFB15CC421F009CCAC1 /* SMOAuth1Client.h */,
+				56404EFC15CC421F009CCAC1 /* SMOAuth1Client.m */,
 			);
 			name = Classes;
 			path = SDK;
@@ -237,6 +258,8 @@
 				8CC414881587A428004EA957 /* SMPushClient.h in Headers */,
 				56404EF215CB0097009CCAC1 /* SMJSONRequestOperation.h in Headers */,
 				56404EF915CB4A5F009CCAC1 /* SMPushToken.h in Headers */,
+				56404EFD15CC421F009CCAC1 /* SMOAuth1Client.h in Headers */,
+				56404F0915CC484D009CCAC1 /* SMIntegrationTestHelpers.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +285,9 @@
 			productReference = 8C33B04815912B1F00BE2570 /* integration tests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		8CCCE4E51580389800C38962 /* stackmob-ios-sdk */ = {
+		8CCCE4E51580389800C38962 /* stackmob-ios-push-sdk */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8CCCE50A1580389800C38962 /* Build configuration list for PBXNativeTarget "stackmob-ios-sdk" */;
+			buildConfigurationList = 8CCCE50A1580389800C38962 /* Build configuration list for PBXNativeTarget "stackmob-ios-push-sdk" */;
 			buildPhases = (
 				8CCCE4E21580389800C38962 /* Sources */,
 				8CCCE4E31580389800C38962 /* Frameworks */,
@@ -275,14 +298,14 @@
 			);
 			dependencies = (
 			);
-			name = "stackmob-ios-sdk";
+			name = "stackmob-ios-push-sdk";
 			productName = "stackmob-ios-sdk";
-			productReference = 8CCCE4E61580389800C38962 /* libstackmob-ios-sdk.a */;
+			productReference = 8CCCE4E61580389800C38962 /* libstackmob-ios-push-sdk.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		8CCCE4F51580389800C38962 /* stackmob-ios-sdkTests */ = {
+		8CCCE4F51580389800C38962 /* stackmob-ios-push-sdkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8CCCE50D1580389800C38962 /* Build configuration list for PBXNativeTarget "stackmob-ios-sdkTests" */;
+			buildConfigurationList = 8CCCE50D1580389800C38962 /* Build configuration list for PBXNativeTarget "stackmob-ios-push-sdkTests" */;
 			buildPhases = (
 				8CCCE4F11580389800C38962 /* Sources */,
 				8CCCE4F21580389800C38962 /* Frameworks */,
@@ -295,7 +318,7 @@
 			dependencies = (
 				8CCCE4FD1580389800C38962 /* PBXTargetDependency */,
 			);
-			name = "stackmob-ios-sdkTests";
+			name = "stackmob-ios-push-sdkTests";
 			productName = "stackmob-ios-sdkTests";
 			productReference = 8CCCE4F61580389800C38962 /* stackmob-ios-sdkTests.octest */;
 			productType = "com.apple.product-type.bundle";
@@ -322,8 +345,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8CCCE4E51580389800C38962 /* stackmob-ios-sdk */,
-				8CCCE4F51580389800C38962 /* stackmob-ios-sdkTests */,
+				8CCCE4E51580389800C38962 /* stackmob-ios-push-sdk */,
+				8CCCE4F51580389800C38962 /* stackmob-ios-push-sdkTests */,
 				8C33B04715912B1F00BE2570 /* integration tests */,
 			);
 		};
@@ -415,6 +438,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CD0DF03159277830087801F /* KWSpec+WaitFor.m in Sources */,
+				56404F0015CC421F009CCAC1 /* SMOAuth1Client.m in Sources */,
+				56404F0615CC47D9009CCAC1 /* SMPushClientIntegrationSpec.m in Sources */,
+				56404F0C15CC484D009CCAC1 /* SMIntegrationTestHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +451,9 @@
 				8CC414891587A428004EA957 /* SMPushClient.m in Sources */,
 				56404EF315CB0097009CCAC1 /* SMJSONRequestOperation.m in Sources */,
 				56404EFA15CB4A5F009CCAC1 /* SMPushToken.m in Sources */,
+				56404EFE15CC421F009CCAC1 /* SMOAuth1Client.m in Sources */,
+				56404F0415CC47D9009CCAC1 /* SMPushClientIntegrationSpec.m in Sources */,
+				56404F0A15CC484D009CCAC1 /* SMIntegrationTestHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +462,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CC4148C1587A43D004EA957 /* SMPushClientSpec.m in Sources */,
+				56404EFF15CC421F009CCAC1 /* SMOAuth1Client.m in Sources */,
+				56404F0515CC47D9009CCAC1 /* SMPushClientIntegrationSpec.m in Sources */,
+				56404F0B15CC484D009CCAC1 /* SMIntegrationTestHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +473,7 @@
 /* Begin PBXTargetDependency section */
 		8CCCE4FD1580389800C38962 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8CCCE4E51580389800C38962 /* stackmob-ios-sdk */;
+			target = 8CCCE4E51580389800C38962 /* stackmob-ios-push-sdk */;
 			targetProxy = 8CCCE4FC1580389800C38962 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -633,7 +665,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8CCCE50A1580389800C38962 /* Build configuration list for PBXNativeTarget "stackmob-ios-sdk" */ = {
+		8CCCE50A1580389800C38962 /* Build configuration list for PBXNativeTarget "stackmob-ios-push-sdk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8CCCE50B1580389800C38962 /* Debug */,
@@ -642,7 +674,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8CCCE50D1580389800C38962 /* Build configuration list for PBXNativeTarget "stackmob-ios-sdkTests" */ = {
+		8CCCE50D1580389800C38962 /* Build configuration list for PBXNativeTarget "stackmob-ios-push-sdkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8CCCE50E1580389800C38962 /* Debug */,
