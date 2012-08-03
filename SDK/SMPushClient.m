@@ -15,6 +15,7 @@
  */
 
 #import "SMPushClient.h"
+#import "SMPushToken.h"
 #import "STLOAuthClient.h"
 
 static SMPushClient *defaultClient = nil;
@@ -63,6 +64,16 @@ static SMPushClient *defaultClient = nil;
     return self;
 }
 
+- (NSString *) tokenStringFromToken:(id)token
+{
+    return [token isMemberOfClass:[SMPushToken class]] ? ((SMPushToken *)token).tokenString : token;
+}
+
+- (NSString *) tokenTypeFromToken:(id)token
+{
+        return [token isMemberOfClass:[SMPushToken class]] ? ((SMPushToken *)token).type : TOKEN_TYPE_IOS;
+}
+
 - (void)registerDeviceToken:token withUser:(NSString *)username onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
 {
     [self registerDeviceToken:token withUser:username overwrite:NO onSuccess:successBlock onFailure:failureBlock];
@@ -70,8 +81,10 @@ static SMPushClient *defaultClient = nil;
 
 - (void)registerDeviceToken:token withUser:(NSString *)username overwrite:(BOOL)overwrite onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
 {
-    NSDictionary *tokenDict = [NSDictionary dictionaryWithObjectsAndKeys:token, @"token",
-                               @"ios", @"type",
+    NSString *tokenString = [self tokenStringFromToken:token];
+    NSString *type = [self tokenTypeFromToken:token];
+    NSDictionary *tokenDict = [NSDictionary dictionaryWithObjectsAndKeys:tokenString, @"token",
+                               type, @"type",
                                nil];
     
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:username, @"userId",
@@ -96,7 +109,9 @@ static SMPushClient *defaultClient = nil;
     NSDictionary *payload = [NSDictionary dictionaryWithObject:message forKey:@"kvPairs"];
     NSMutableArray * tokensArray = [NSMutableArray array];
     [tokens enumerateObjectsUsingBlock:^(id token, NSUInteger idx, BOOL *stop) {
-        NSDictionary * tokenDict = [NSDictionary dictionaryWithObjectsAndKeys:token, @"token", @"ios", @"type", nil];
+        NSString *tokenString = [self tokenStringFromToken:token];
+        NSString *type = [self tokenTypeFromToken:token];
+        NSDictionary * tokenDict = [NSDictionary dictionaryWithObjectsAndKeys:tokenString, @"token", type, @"type", nil];
         [tokensArray addObject:tokenDict];
     }];
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:tokensArray, @"tokens", payload, @"payload", nil];
@@ -110,12 +125,18 @@ static SMPushClient *defaultClient = nil;
 
 - (void)getUsersForTokens:(NSArray *)tokens onSuccess:(SMResultSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
 {
+    NSMutableArray * tokensArray = [NSMutableArray array];
+    [tokens enumerateObjectsUsingBlock:^(id token, NSUInteger idx, BOOL *stop) {
+        [tokensArray addObject:[self tokenStringFromToken:token]];
+    }];
     NSDictionary *args = [NSDictionary dictionaryWithObject:tokens forKey:@"tokens"]; 
 }
 
 - (void)deleteToken:(id)token onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
 {
-    NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:token, @"token", @"ios", @"type", nil];
+    NSString *tokenString = [self tokenStringFromToken:token];
+    NSString *type = [self tokenTypeFromToken:token];
+    NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:tokenString, @"token", type, @"type", nil];
 }
 
 

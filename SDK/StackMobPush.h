@@ -15,3 +15,4 @@
  */
 
 #import "SMPushClient.h"
+#import "SMPushToken.h"
