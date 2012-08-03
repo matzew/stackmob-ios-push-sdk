@@ -95,24 +95,21 @@ static SMPushClient *defaultClient = nil;
                           nil];
     NSURLRequest *request = [self.oauthClient requestWithMethod:@"POST" path:@"register_device_token_universal" parameters:args];
   
-    AFJSONRequestOperation *op = [SMJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        successBlock();
-    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        failureBlock([NSError errorWithDomain:@"SMError" code:[response statusCode] userInfo:JSON]);
-    }];
-    [self.oauthClient enqueueHTTPRequestOperation:op];
-    
+    [self enqueueRequest:request onSuccess:^(NSDictionary *results) {successBlock();} onFailure:failureBlock];
 }
 
 - (void)broadcastMessage:(NSDictionary *)message onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
 {
     NSDictionary *args = [NSDictionary dictionaryWithObject:message forKey:@"kvPairs"];
-    
+    NSURLRequest *request = [self.oauthClient requestWithMethod:@"POST" path:@"push_broadcast_universal" parameters:args];
+    [self enqueueRequest:request onSuccess:^(NSDictionary *results) {successBlock();} onFailure:failureBlock];
 }
 
 - (void)sendMessage:(NSDictionary *)message toUsers:(NSArray *)users onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
 {
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:message, @"kvPairs", users, @"userIds", nil]; 
+    NSURLRequest *request = [self.oauthClient requestWithMethod:@"POST" path:@"push_users_universal" parameters:args];
+    [self enqueueRequest:request onSuccess:^(NSDictionary *results) {successBlock();} onFailure:failureBlock];
 }
 
 - (void)sendMessage:(NSDictionary *)message toTokens:(NSArray *)tokens onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
@@ -126,12 +123,15 @@ static SMPushClient *defaultClient = nil;
         [tokensArray addObject:tokenDict];
     }];
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:tokensArray, @"tokens", payload, @"payload", nil];
-    
+    NSURLRequest *request = [self.oauthClient requestWithMethod:@"POST" path:@"push_tokens_universal" parameters:args];
+    [self enqueueRequest:request onSuccess:^(NSDictionary *results) {successBlock();} onFailure:failureBlock];
 }
 
 - (void)getTokensForUsers:(NSArray *)users onSuccess:(SMResultSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
 {
     NSDictionary *args = [NSDictionary dictionaryWithObject:users forKey:@"userIds"];
+    NSURLRequest *request = [self.oauthClient requestWithMethod:@"POST" path:@"get_tokens_for_users_universal" parameters:args];
+    [self enqueueRequest:request onSuccess:successBlock onFailure:failureBlock];
 }
 
 - (void)getUsersForTokens:(NSArray *)tokens onSuccess:(SMResultSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
@@ -141,6 +141,8 @@ static SMPushClient *defaultClient = nil;
         [tokensArray addObject:[self tokenStringFromToken:token]];
     }];
     NSDictionary *args = [NSDictionary dictionaryWithObject:tokens forKey:@"tokens"]; 
+    NSURLRequest *request = [self.oauthClient requestWithMethod:@"POST" path:@"get_users_for_tokens_universal" parameters:args];
+    [self enqueueRequest:request onSuccess:successBlock onFailure:failureBlock];
 }
 
 - (void)deleteToken:(id)token onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
@@ -150,12 +152,17 @@ static SMPushClient *defaultClient = nil;
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:tokenString, @"token", type, @"type", nil];
     NSURLRequest *request = [self.oauthClient requestWithMethod:@"POST" path:@"remove_token_universal" parameters:args];
     
+    [self enqueueRequest:request onSuccess:^(NSDictionary *results) {successBlock();} onFailure:failureBlock];
+}
+
+- (void)enqueueRequest:(NSURLRequest *)request onSuccess:(SMResultSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
+{
     AFJSONRequestOperation *op = [SMJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        successBlock();
+        successBlock(JSON);
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         failureBlock([NSError errorWithDomain:@"SMError" code:[response statusCode] userInfo:JSON]);
     }];
-    [self.oauthClient enqueueHTTPRequestOperation:op];
+    [self.oauthClient enqueueHTTPRequestOperation:op];  
 }
 
 
