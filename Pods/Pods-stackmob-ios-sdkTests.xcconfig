@@ -1,5 +1,0 @@
-PODS_ROOT = ${SRCROOT}/Pods
-OTHER_LDFLAGS = -ObjC -framework SenTestingKit
-ALWAYS_SEARCH_USER_PATHS = YES
-FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks"
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/stl-oauth-client" "${PODS_ROOT}/Headers/Kiwi"

@@ -15,8 +15,20 @@
  */
 
 #import "SMIntegrationTestHelpers.h"
-#import "AFJSONUtilities.h"
-#import "StackMobPush.h"
+
+
+void syncWithSemaphore(void (^block)(dispatch_semaphore_t semaphore)) {
+    dispatch_semaphore_t s = dispatch_semaphore_create(0);
+    block(s);
+    while(dispatch_semaphore_wait(s, DISPATCH_TIME_NOW)) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10.0]];
+    }
+    dispatch_release(s);
+}
+
+void syncReturn(dispatch_semaphore_t semaphore) {
+    dispatch_semaphore_signal(semaphore);
+}
 
 @implementation SMIntegrationTestHelpers
 

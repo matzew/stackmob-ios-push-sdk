@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 
-#import "KWSpec+WaitFor.h"
+#import <Foundation/Foundation.h>
 
-@implementation KWSpec (WaitFor)
+#import "SMPushClient.h"
 
-+ (void) waitWithTimeout:(NSTimeInterval)timeout forCondition:(BOOL(^)())conditionalBlock {
-    NSDate *timeoutDate = [[NSDate alloc] initWithTimeIntervalSinceNow:timeout];
-    while (conditionalBlock() == NO) {
-        if ([timeoutDate timeIntervalSinceDate:[NSDate date]] < 0) {
-            return;
-        }
-        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
-    }
-}
+#define SM_TEST_API_VERSION @"0"
+#define SM_TEST_API_BASEURL @"http://api.stackmob.com"
+
+
+void syncWithSemaphore(void (^block)(dispatch_semaphore_t semaphore));
+void syncReturn(dispatch_semaphore_t semaphore);
+
+@interface SMIntegrationTestHelpers : NSObject
+
++ (SMPushClient *)defaultClient;
 
 @end
