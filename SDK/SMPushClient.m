@@ -15,6 +15,7 @@
  */
 
 #import "SMPushClient.h"
+#import "STLOAuthClient.h"
 
 static SMPushClient *defaultClient = nil;
 
@@ -24,6 +25,7 @@ static SMPushClient *defaultClient = nil;
 @property(nonatomic, readwrite, copy) NSString *publicKey;
 @property(nonatomic, readwrite, copy) NSString *privateKey;
 @property(nonatomic, readwrite, copy) NSString *host;
+@property(nonatomic, retain) STLOAuthClient *oauthClient;
 
 @end
 
@@ -33,8 +35,13 @@ static SMPushClient *defaultClient = nil;
 @synthesize privateKey = _SM_privateKey;
 @synthesize publicKey = _SM_publicKey;
 @synthesize host = _SM_host;
+@synthesize oauthClient = _SM_oauthClient;
 
 - (id)initWithAPIVersion:(NSString *)appAPIVersion publicKey:(NSString *)publicKey privateKey:(NSString *)privateKey
+{
+    return [self initWithAPIVersion:appAPIVersion publicKey:publicKey privateKey:privateKey pushHost:DEFAULT_PUSH_HOST];
+}
+- (id)initWithAPIVersion:(NSString *)appAPIVersion publicKey:(NSString *)publicKey privateKey:(NSString *)privateKey pushHost:(NSString *)pushHost;
 {
     self = [self init];
     if (self)
@@ -42,13 +49,73 @@ static SMPushClient *defaultClient = nil;
         self.appAPIVersion = appAPIVersion;
         self.publicKey = publicKey;
         self.privateKey = privateKey;
-        self.host = @"push.stackmob.com";
+        self.host = pushHost;
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@", pushHost]];
+        self.oauthClient = [[STLOAuthClient alloc] initWithBaseURL:url consumerKey:publicKey secret:privateKey];
+        NSString *acceptHeader = [NSString stringWithFormat:@"application/vnd.stackmob+json; version=%@", appAPIVersion];
+        [self.oauthClient setDefaultHeader:@"Accept" value:acceptHeader];
+        [self.oauthClient setParameterEncoding:AFJSONParameterEncoding];
         if ([SMPushClient defaultClient] == nil)
         {
             [SMPushClient setDefaultClient:self];
         }
     }
     return self;
+}
+
+- (void)registerDeviceToken:token withUser:(NSString *)username onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
+{
+    [self registerDeviceToken:token withUser:username overwrite:NO onSuccess:successBlock onFailure:failureBlock];
+}
+
+- (void)registerDeviceToken:token withUser:(NSString *)username overwrite:(BOOL)overwrite onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
+{
+    NSDictionary *tokenDict = [NSDictionary dictionaryWithObjectsAndKeys:token, @"token",
+                               @"ios", @"type",
+                               nil];
+    
+    NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:username, @"userId",
+                          tokenDict, @"token",
+                          overwrite, @"overwrite",
+                          nil];
+    
+}
+
+- (void)broadcastMessage:(NSDictionary *)message onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
+{
+    NSDictionary *args = [NSDictionary dictionaryWithObject:message forKey:@"kvPairs"];
+}
+
+- (void)sendMessage:(NSDictionary *)message toUsers:(NSArray *)users onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
+{
+    NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:message, @"kvPairs", users, @"userIds", nil]; 
+}
+
+- (void)sendMessage:(NSDictionary *)message toTokens:(NSArray *)tokens onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
+{
+    NSDictionary *payload = [NSDictionary dictionaryWithObject:message forKey:@"kvPairs"];
+    NSMutableArray * tokensArray = [NSMutableArray array];
+    [tokens enumerateObjectsUsingBlock:^(id token, NSUInteger idx, BOOL *stop) {
+        NSDictionary * tokenDict = [NSDictionary dictionaryWithObjectsAndKeys:token, @"token", @"ios", @"type", nil];
+        [tokensArray addObject:tokenDict];
+    }];
+    NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:tokensArray, @"tokens", payload, @"payload", nil];
+    
+}
+
+- (void)getTokensForUsers:(NSArray *)users onSuccess:(SMResultSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
+{
+    NSDictionary *args = [NSDictionary dictionaryWithObject:users forKey:@"userIds"];
+}
+
+- (void)getUsersForTokens:(NSArray *)tokens onSuccess:(SMResultSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
+{
+    NSDictionary *args = [NSDictionary dictionaryWithObject:tokens forKey:@"tokens"]; 
+}
+
+- (void)deleteToken:(id)token onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
+{
+    NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:token, @"token", @"ios", @"type", nil];
 }
 
 
