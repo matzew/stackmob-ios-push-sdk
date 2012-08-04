@@ -36,7 +36,7 @@ describe(@"SMPushClient", ^{
         
         createSuccess0 = NO;
         syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
-            [defaultClient registerDeviceToken:token1 withUser:@"bodie" onSuccess:^{
+            [defaultClient registerDeviceToken:token0 withUser:@"bodie" onSuccess:^{
                 createSuccess0 = YES;
                 syncReturn(semaphore);
             } onFailure:^(NSError *theError) {
@@ -44,7 +44,6 @@ describe(@"SMPushClient", ^{
                 syncReturn(semaphore);
             }];
         });
-        [[theValue(createSuccess0) should] beYes];
         
         createSuccess1 = NO;
         syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
@@ -56,7 +55,6 @@ describe(@"SMPushClient", ^{
                 syncReturn(semaphore);
             }];
         });
-        [[theValue(createSuccess1) should] beYes];
         
         createSuccess2 = NO;
         syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
@@ -68,7 +66,6 @@ describe(@"SMPushClient", ^{
                 syncReturn(semaphore);
             }];
         });
-        [[theValue(createSuccess2) should] beYes];
         
     });
     afterEach(^{
@@ -112,11 +109,26 @@ describe(@"SMPushClient", ^{
         [[theValue(deleteSuccess) should] beYes];
     });
     describe(@"register token", ^{
-        it(@"should return the whole user object", ^{
+        it(@"should succeed given valid tokens", ^{
             [[theValue(createSuccess0) should] beYes];
             [[theValue(createSuccess1) should] beYes];
             [[theValue(createSuccess2) should] beYes];
         });
+        
+        it(@"should fail with a nonexitant token", ^{
+            __block BOOL failed = NO;
+            syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
+                [defaultClient registerDeviceToken:token1 withUser:@"herc" onSuccess:^{
+                    failed = NO;
+                    syncReturn(semaphore);
+                } onFailure:^(NSError *theError) {
+                    failed = YES;
+                    syncReturn(semaphore);
+                }];
+            });
+            [[theValue(failed) should] beYes];
+        });
+
     });
         
  });

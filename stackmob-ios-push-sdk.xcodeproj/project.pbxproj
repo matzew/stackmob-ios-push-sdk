@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C4BF99656A94AA19588707A /* libPods-stackmob-ios-push-sdkTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF7CF4D9DC24DFBA06A36B1 /* libPods-stackmob-ios-push-sdkTests.a */; };
+		56404F2A15CCA439009CCAC1 /* StackMobCredentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56404F2915CCA439009CCAC1 /* StackMobCredentials.plist */; };
 		62C04C5FDC8E4D6988F56D5B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6D88D6737664C8DB6F854C1 /* libPods.a */; };
 		CB240130EC29483CBA0EFCC0 /* libPods-integration-tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F81C2D510494AD7891B2C9E /* libPods-integration-tests.a */; };
 		DEBA174315CC91A500913CF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBA174215CC91A500913CF8 /* Foundation.framework */; };
@@ -59,6 +60,7 @@
 		14A9F201FA8347C5B1D4D6C3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		1A440B0D98AD42FDBC5B3441 /* Pods-integration-tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-integration-tests.xcconfig"; path = "Pods/Pods-integration-tests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		4F81C2D510494AD7891B2C9E /* libPods-integration-tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-integration-tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56404F2915CCA439009CCAC1 /* StackMobCredentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StackMobCredentials.plist; sourceTree = "<group>"; };
 		62E062CD0C764A80BABDB4C6 /* Pods-stackmob-ios-push-sdkTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stackmob-ios-push-sdkTests.xcconfig"; path = "Pods/Pods-stackmob-ios-push-sdkTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		D6D88D6737664C8DB6F854C1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEBA173F15CC91A500913CF8 /* libstackmob-ios-push-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libstackmob-ios-push-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +224,7 @@
 		DEBA177315CC91B400913CF8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				56404F2915CCA439009CCAC1 /* StackMobCredentials.plist */,
 				DEBA17A515CC945B00913CF8 /* StackMobCredentials.plist.example */,
 				DEBA177415CC91B400913CF8 /* integration-tests-Info.plist */,
 				DEBA177515CC91B400913CF8 /* InfoPlist.strings */,
@@ -350,6 +353,7 @@
 			files = (
 				DEBA177715CC91B400913CF8 /* InfoPlist.strings in Resources */,
 				DEBA17A615CC945B00913CF8 /* StackMobCredentials.plist.example in Resources */,
+				56404F2A15CCA439009CCAC1 /* StackMobCredentials.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
