@@ -134,14 +134,6 @@ typedef void (^SMFailureBlock)(NSError *error);
 - (void)getTokensForUsers:(NSArray *)users onSuccess:(SMResultSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock;
 
 /**
- * Get the user associated with each token. If successful the onSuccess block will be called with an NSDictionary mapping device token strings to username strings.
- * @param tokens An array containing either device token strings or SMPushToken objects to query
- * @param onSuccess The block to call on success
- * @param onFailure The block to call on failure
- */
-- (void)getUsersForTokens:(NSArray *)tokens onSuccess:(SMResultSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock;
-
-/**
  * Deletes the token from StackMob's server
  * @param token A token represented by either a device token string or an SMPushToken object
  * @param onSuccess The block to call on success

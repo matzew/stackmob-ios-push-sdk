@@ -91,7 +91,7 @@ static SMPushClient *defaultClient = nil;
     
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:username, @"userId",
                           tokenDict, @"token",
-                          overwrite, @"overwrite",
+                          [NSNumber numberWithBool:overwrite], @"overwrite",
                           nil];
     NSURLRequest *request = [self.oauthClient requestWithMethod:@"POST" path:@"register_device_token_universal" parameters:args];
   
@@ -131,18 +131,10 @@ static SMPushClient *defaultClient = nil;
 {
     NSDictionary *args = [NSDictionary dictionaryWithObject:users forKey:@"userIds"];
     NSURLRequest *request = [self.oauthClient requestWithMethod:@"POST" path:@"get_tokens_for_users_universal" parameters:args];
-    [self enqueueRequest:request onSuccess:successBlock onFailure:failureBlock];
-}
-
-- (void)getUsersForTokens:(NSArray *)tokens onSuccess:(SMResultSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
-{
-    NSMutableArray * tokensArray = [NSMutableArray array];
-    [tokens enumerateObjectsUsingBlock:^(id token, NSUInteger idx, BOOL *stop) {
-        [tokensArray addObject:[self tokenStringFromToken:token]];
-    }];
-    NSDictionary *args = [NSDictionary dictionaryWithObject:tokens forKey:@"tokens"]; 
-    NSURLRequest *request = [self.oauthClient requestWithMethod:@"POST" path:@"get_users_for_tokens_universal" parameters:args];
-    [self enqueueRequest:request onSuccess:successBlock onFailure:failureBlock];
+    [self enqueueRequest:request onSuccess:^(NSDictionary *results) {
+        NSDictionary *tokens = [results valueForKey:@"tokens"];
+        successBlock([results valueForKey:@"tokens"]);
+    } onFailure:failureBlock];
 }
 
 - (void)deleteToken:(id)token onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
