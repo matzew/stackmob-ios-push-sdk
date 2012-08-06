@@ -129,11 +129,25 @@ static SMPushClient *defaultClient = nil;
 
 - (void)getTokensForUsers:(NSArray *)users onSuccess:(SMResultSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
 {
-    NSDictionary *args = [NSDictionary dictionaryWithObject:users forKey:@"userIds"];
-    NSURLRequest *request = [self.oauthClient requestWithMethod:@"POST" path:@"get_tokens_for_users_universal" parameters:args];
+    NSString *usersString = [users componentsJoinedByString:@","];
+    NSDictionary *args = [NSDictionary dictionaryWithObject:usersString forKey:@"userIds"];
+    NSURLRequest *request = [self.oauthClient requestWithMethod:@"GET" path:@"get_tokens_for_users_universal" parameters:args];
     [self enqueueRequest:request onSuccess:^(NSDictionary *results) {
         NSDictionary *tokens = [results valueForKey:@"tokens"];
-        successBlock([results valueForKey:@"tokens"]);
+        NSMutableDictionary *resultDictionary = [[NSDictionary dictionary] mutableCopy];
+        [tokens enumerateKeysAndObjectsUsingBlock:^(id user, id obj, BOOL *stop) {
+            NSArray *tokenList = obj;
+            NSMutableArray *resultList = [[NSArray array] mutableCopy];
+            [tokenList enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                NSDictionary *token = obj;
+                SMPushToken *result = [[SMPushToken alloc] initWithString:[token valueForKey:@"token"] type:[token valueForKey:@"type"]];
+                result.registeredMilliseconds = [[token valueForKey:@"type"] intValue];
+                [resultList addObject:result];
+            }];
+            [resultDictionary setValue:resultList forKey:user];
+        }];
+
+        successBlock(resultDictionary);
     } onFailure:failureBlock];
 }
 

@@ -348,6 +348,129 @@ describe(@"SMPushClient", ^{
             [[theValue(deleteSuccess) should] beYes];
         });
     });
+    /* need to get some realish tokens before enabling this
+    describe(@"broadcast", ^{
+        it(@"should succeed", ^{
+            __block BOOL succeeded = NO;
+            __block NSDictionary *result;
+            syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
+                NSMutableDictionary *args = [NSMutableDictionary dictionaryWithCapacity:3];
+                [args setValue:@"my push message" forKey:@"alert"];
+                [args setValue:[NSNumber numberWithInt:1] forKey:@"badge"];
+                [defaultClient broadcastMessage:args onSuccess:^(NSDictionary * tokens){
+                    succeeded = YES;
+                    result = tokens;
+                    syncReturn(semaphore);
+                } onFailure:^(NSError *theError) {
+                    succeeded = NO;
+                    syncReturn(semaphore);
+                }];
+            });
+            [[theValue(succeeded) should] beYes];
+        });
+    });
+     */
+    describe(@"push to tokens", ^{
+        it(@"should fail on unregistered tokens", ^{
+            __block BOOL failed = NO;
+            __block NSDictionary *result;
+            syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
+                NSMutableDictionary *args = [NSMutableDictionary dictionaryWithCapacity:3];
+                [args setValue:@"my push message" forKey:@"alert"];
+                [args setValue:[NSNumber numberWithInt:1] forKey:@"badge"];
+                [defaultClient sendMessage:args toTokens:[NSArray arrayWithObject:token3] onSuccess:^(NSDictionary * tokens){
+                    failed = NO;
+                    result = tokens;
+                    syncReturn(semaphore);
+                } onFailure:^(NSError *theError) {
+                    failed = YES;
+                    [[theValue(theError.code) should] equal:[NSNumber numberWithInt:400]];
+                    syncReturn(semaphore);
+                }];
+            });
+            [[theValue(failed) should] beYes];
+        });
+        /* need to get some realish tokens before enabling this
+        it(@"should succeed", ^{
+            __block BOOL succeeded = NO;
+            __block NSDictionary *result;
+            syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
+                NSMutableDictionary *args = [NSMutableDictionary dictionaryWithCapacity:3];
+                [args setValue:@"my push message" forKey:@"alert"];
+                [args setValue:[NSNumber numberWithInt:1] forKey:@"badge"];
+                [defaultClient sendMessage:args toTokens:[NSArray arrayWithObject:token0]  onSuccess:^(NSDictionary * tokens){
+                    succeeded = YES;
+                    result = tokens;
+                    syncReturn(semaphore);
+                } onFailure:^(NSError *theError) {
+                    succeeded = NO;
+                    syncReturn(semaphore);
+                }];
+            });
+            [[theValue(succeeded) should] beYes];
+        });
+        it(@"should succeed with SMPushToken", ^{
+            __block BOOL succeeded = NO;
+            __block NSDictionary *result;
+            syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
+                NSMutableDictionary *args = [NSMutableDictionary dictionaryWithCapacity:3];
+                [args setValue:@"my push message" forKey:@"alert"];
+                [args setValue:[NSNumber numberWithInt:1] forKey:@"badge"];
+                SMPushToken * token = [[SMPushToken alloc] initWithString:token0];
+                [defaultClient sendMessage:args toTokens:[NSArray arrayWithObject:token]  onSuccess:^(NSDictionary * tokens){
+                    succeeded = YES;
+                    result = tokens;
+                    syncReturn(semaphore);
+                } onFailure:^(NSError *theError) {
+                    succeeded = NO;
+                    syncReturn(semaphore);
+                }];
+            });
+            [[theValue(succeeded) should] beYes];
+        });
+         */
+    });
+    describe(@"push to users", ^{
+        it(@"should fail on unregistered users", ^{
+            __block BOOL failed = NO;
+            __block NSDictionary *result;
+            syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
+                NSMutableDictionary *args = [NSMutableDictionary dictionaryWithCapacity:3];
+                [args setValue:@"my push message" forKey:@"alert"];
+                [args setValue:[NSNumber numberWithInt:1] forKey:@"badge"];
+                [defaultClient sendMessage:args toUsers:[NSArray arrayWithObject:@"herc"] onSuccess:^(NSDictionary * tokens){
+                    failed = NO;
+                    result = tokens;
+                    syncReturn(semaphore);
+                } onFailure:^(NSError *theError) {
+                    failed = YES;
+                    [[theValue(theError.code) should] equal:[NSNumber numberWithInt:400]];
+                    syncReturn(semaphore);
+                }];
+            });
+            [[theValue(failed) should] beYes];
+        });
+        /* need to get some realish tokens before enabling this
+        it(@"should succeed", ^{
+            __block BOOL succeeded = NO;
+            __block NSDictionary *result;
+            syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
+                NSMutableDictionary *args = [NSMutableDictionary dictionaryWithCapacity:3];
+                [args setValue:@"my push message" forKey:@"alert"];
+                [args setValue:[NSNumber numberWithInt:1] forKey:@"badge"];
+                [defaultClient sendMessage:args toUsers:[NSArray arrayWithObject:@"bodie"] onSuccess:^(NSDictionary * tokens){
+                    succeeded = YES;
+                    result = tokens;
+                    syncReturn(semaphore);
+                } onFailure:^(NSError *theError) {
+                    succeeded = NO;
+                    syncReturn(semaphore);
+                }];
+            });
+            [[theValue(succeeded) should] beYes];
+        });
+         */
+    });
 
         
  });
