@@ -25,6 +25,7 @@ describe(@"SMPushClient", ^{
     __block NSString *token0 = @"0000000000000000000000000000000000000000000000000000000000000000";
     __block NSString *token1 = @"1111111111111111111111111111111111111111111111111111111111111111";
     __block NSString *token2 = @"2222222222222222222222222222222222222222222222222222222222222222";
+    __block NSString *token3 = @"3333333333333333333333333333333333333333333333333333333333333333";
     __block SMPushClient *defaultClient = nil;
     beforeEach(^{
         // create object to login with, assumes user object name with username/password fields
@@ -107,8 +108,8 @@ describe(@"SMPushClient", ^{
         
         [[theValue(deleteSuccess) should] beYes];
     });
-    describe(@"register token", ^{
-        it(@"should failw with a duplicate token", ^{
+    describe(@"register/delete token", ^{
+        it(@"should not register a duplicate token", ^{
             __block BOOL failed = NO;
             syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
                 [defaultClient registerDeviceToken:token1 withUser:@"herc" onSuccess:^{
@@ -121,7 +122,7 @@ describe(@"SMPushClient", ^{
             });
             [[theValue(failed) should] beYes];
         });
-        it(@"should fail with an invalid token", ^{
+        it(@"should not register an invalid token", ^{
             __block BOOL failed = NO;
             syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
                 [defaultClient registerDeviceToken:@"tooshort" withUser:@"herc" onSuccess:^{
@@ -134,7 +135,7 @@ describe(@"SMPushClient", ^{
             });
             [[theValue(failed) should] beYes];
         });
-        it(@"should succeed with a duplicate token and the overwrite flag", ^{
+        it(@"should register a duplicate token and the overwrite flag", ^{
             __block BOOL succeeded = NO;
             syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
                 [defaultClient registerDeviceToken:token1 withUser:@"herc" overwrite:YES onSuccess:^{
@@ -147,7 +148,7 @@ describe(@"SMPushClient", ^{
             });
             [[theValue(succeeded) should] beYes];
         });
-        it(@"should succeed with an SMPushToken and the overwrite flag", ^{
+        it(@"should register an SMPushToken and the overwrite flag", ^{
             __block BOOL succeeded = NO;
             syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
                 SMPushToken *token = [[SMPushToken alloc] initWithString:token1];
@@ -161,12 +162,38 @@ describe(@"SMPushClient", ^{
             });
             [[theValue(succeeded) should] beYes];
         });
-        it(@"should succeed with an SMPushToken and the overwrite flag", ^{
+        it(@"should register and delete an SMPushToken", ^{
+            __block BOOL succeeded = NO;
+            syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
+                SMPushToken *token = [[SMPushToken alloc] initWithString:token3];
+                [defaultClient registerDeviceToken:token withUser:@"herc" onSuccess:^{
+                    succeeded = YES;
+                    syncReturn(semaphore);
+                } onFailure:^(NSError *theError) {
+                    succeeded = NO;
+                    syncReturn(semaphore);
+                }];
+            });
+            [[theValue(succeeded) should] beYes];
+            
+            succeeded = NO;
+            syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
+                [defaultClient deleteToken:token3 onSuccess:^{
+                    succeeded = YES;
+                    syncReturn(semaphore);
+                } onFailure:^(NSError *theError) {
+                    succeeded = YES;
+                    syncReturn(semaphore);
+                }];
+            });
+            [[theValue(succeeded) should] beYes];
+        });
+        it(@"should register and delete an Android token flag", ^{
             __block BOOL succeeded = NO;
             __block SMPushToken *token = [[SMPushToken alloc] initWithString:@"helloworld" type:TOKEN_TYPE_ANDROID_GCM];
             syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
 
-                [defaultClient registerDeviceToken:token withUser:@"herc" overwrite:YES onSuccess:^{
+                [defaultClient registerDeviceToken:token withUser:@"herc" onSuccess:^{
                     succeeded = YES;
                     syncReturn(semaphore);
                 } onFailure:^(NSError *theError) {
@@ -188,12 +215,10 @@ describe(@"SMPushClient", ^{
             
             [[theValue(deleteSuccess) should] beYes];
         });
-    });
-    describe(@"delete token", ^{
-        it(@"should fail with a nonexistent token", ^{
+        pending(@"should not delete a nonexistent token", ^{
             __block BOOL failed;
             syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
-                [defaultClient registerDeviceToken:@"notatoken" withUser:@"herc" onSuccess:^{
+                [defaultClient deleteToken:@"notatoken" onSuccess:^{
                     failed = NO;
                     syncReturn(semaphore);
                 } onFailure:^(NSError *theError) {
@@ -203,8 +228,9 @@ describe(@"SMPushClient", ^{
             });
             [[theValue(failed) should] beYes];
         });
-        //pending(@"should succeed with an SMPushToken");
-        //pending(@"should succeed with an android token");
+    });
+    describe(@"get tokens for users", ^{
+
     });
 
         
