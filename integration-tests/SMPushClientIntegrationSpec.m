@@ -18,7 +18,7 @@
 #import "SMIntegrationTestHelpers.h"
 #import "StackMobPush.h"
 
-SPEC_BEGIN(SMUserSessionIntegrationSpec)
+SPEC_BEGIN(SMPushClientIntegrationSpec)
 
 describe(@"SMPushClient", ^{
 
