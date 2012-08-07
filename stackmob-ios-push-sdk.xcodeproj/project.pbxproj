@@ -11,6 +11,7 @@
 		56404F2A15CCA439009CCAC1 /* StackMobCredentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56404F2915CCA439009CCAC1 /* StackMobCredentials.plist */; };
 		62C04C5FDC8E4D6988F56D5B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6D88D6737664C8DB6F854C1 /* libPods.a */; };
 		CB240130EC29483CBA0EFCC0 /* libPods-integration-tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F81C2D510494AD7891B2C9E /* libPods-integration-tests.a */; };
+		DE655D9615D1C06C009CA786 /* SMVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = DE655D9415D1C06C009CA786 /* SMVersion.h */; };
 		DEBA174315CC91A500913CF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBA174215CC91A500913CF8 /* Foundation.framework */; };
 		DEBA175115CC91A500913CF8 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBA175015CC91A500913CF8 /* SenTestingKit.framework */; };
 		DEBA175315CC91A600913CF8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBA175215CC91A600913CF8 /* UIKit.framework */; };
@@ -63,6 +64,7 @@
 		56404F2915CCA439009CCAC1 /* StackMobCredentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StackMobCredentials.plist; sourceTree = "<group>"; };
 		62E062CD0C764A80BABDB4C6 /* Pods-stackmob-ios-push-sdkTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stackmob-ios-push-sdkTests.xcconfig"; path = "Pods/Pods-stackmob-ios-push-sdkTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		D6D88D6737664C8DB6F854C1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE655D9415D1C06C009CA786 /* SMVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMVersion.h; sourceTree = "<group>"; };
 		DEBA173F15CC91A500913CF8 /* libstackmob-ios-push-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libstackmob-ios-push-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEBA174215CC91A500913CF8 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DEBA174615CC91A500913CF8 /* stackmob-ios-push-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "stackmob-ios-push-sdk-Prefix.pch"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				DEBA179315CC935D00913CF8 /* SMPushToken.m */,
 				DEBA179415CC935D00913CF8 /* stackmob-ios-sdk-Prefix.pch */,
 				DEBA179515CC935D00913CF8 /* StackMobPush.h */,
+				DE655D9415D1C06C009CA786 /* SMVersion.h */,
 				DEBA174515CC91A500913CF8 /* Supporting Files */,
 			);
 			path = "stackmob-ios-push-sdk";
@@ -246,6 +249,7 @@
 				DEBA179C15CC935D00913CF8 /* SMPushToken.h in Headers */,
 				DEBA179E15CC935D00913CF8 /* stackmob-ios-sdk-Prefix.pch in Headers */,
 				DEBA179F15CC935D00913CF8 /* StackMobPush.h in Headers */,
+				DE655D9615D1C06C009CA786 /* SMVersion.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
