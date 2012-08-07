@@ -578,6 +578,7 @@
 				GCC_PREFIX_HEADER = "stackmob-ios-push-sdk/stackmob-ios-push-sdk-Prefix.pch";
 				INFOPLIST_FILE = "stackmob-ios-push-sdkTests/stackmob-ios-push-sdkTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -594,6 +595,7 @@
 				GCC_PREFIX_HEADER = "stackmob-ios-push-sdk/stackmob-ios-push-sdk-Prefix.pch";
 				INFOPLIST_FILE = "stackmob-ios-push-sdkTests/stackmob-ios-push-sdkTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
@@ -610,6 +612,7 @@
 				GCC_PREFIX_HEADER = "integration-tests/integration-tests-Prefix.pch";
 				INFOPLIST_FILE = "integration-tests/integration-tests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -626,6 +629,7 @@
 				GCC_PREFIX_HEADER = "integration-tests/integration-tests-Prefix.pch";
 				INFOPLIST_FILE = "integration-tests/integration-tests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
