@@ -12,7 +12,7 @@
 
 @synthesize tokenString = _SM_tokenString;
 @synthesize type = _SM_type;
-@synthesize registeredMilliseconds = _SM_registeredMilliseconds;
+@synthesize registrationTime = _SM_registrationTime;
 
 -(id)initWithString:(NSString *)tokenString
 {

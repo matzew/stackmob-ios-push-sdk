@@ -24,7 +24,7 @@
 
 @property(nonatomic, copy) NSString *tokenString;
 @property(nonatomic, copy) NSString *type;
-@property(nonatomic) long registeredMilliseconds;
+@property(nonatomic, copy) NSDate *registrationTime;
 
 
 /**

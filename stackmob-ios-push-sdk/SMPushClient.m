@@ -144,7 +144,10 @@ static SMPushClient *defaultClient = nil;
             [tokenList enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 NSDictionary *token = obj;
                 SMPushToken *result = [[SMPushToken alloc] initWithString:[token valueForKey:@"token"] type:[token valueForKey:@"type"]];
-                result.registeredMilliseconds = [[token valueForKey:@"type"] intValue];
+                int registeredTimeMillis = [[token valueForKey:@"registered_milliseconds"] intValue];
+                if(registeredTimeMillis != 0) {
+                    result.registrationTime = [NSDate dateWithTimeIntervalSince1970:registeredTimeMillis/1000];
+                }
                 [resultList addObject:result];
             }];
             [resultDictionary setValue:resultList forKey:user];

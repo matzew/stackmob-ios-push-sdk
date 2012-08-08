@@ -266,7 +266,7 @@ describe(@"SMPushClient", ^{
             SMPushToken *token = [tokenList objectAtIndex:0];
             [[token.tokenString should] equal:token2];
             [[token.type should] equal:TOKEN_TYPE_IOS];
-            [theValue(token.registeredMilliseconds) shouldNotBeNil];
+            [theValue(token.registrationTime) shouldNotBeNil];
         });
         it(@"should succeed for an existing user with multiple tokens", ^{
             __block BOOL succeeded = NO;
@@ -293,10 +293,10 @@ describe(@"SMPushClient", ^{
             }
             [[firstToken.tokenString should] equal:token0];
             [[firstToken.type should] equal:TOKEN_TYPE_IOS];
-            [theValue(firstToken.registeredMilliseconds) shouldNotBeNil];
+            [theValue(firstToken.registrationTime) shouldNotBeNil];
             [[secondToken.tokenString should] equal:token1];
             [[secondToken.type should] equal:TOKEN_TYPE_IOS];
-            [theValue(secondToken.registeredMilliseconds) shouldNotBeNil];
+            [theValue(secondToken.registrationTime) shouldNotBeNil];
         });
         
         it(@"should succeed for an android token", ^{
@@ -332,7 +332,7 @@ describe(@"SMPushClient", ^{
             SMPushToken *firstToken = [tokenList objectAtIndex:0];
             [[firstToken.tokenString should] equal:[token tokenString]];
             [[firstToken.type should] equal:[token type]];
-            [theValue(firstToken.registeredMilliseconds) shouldNotBeNil];
+            [theValue(firstToken.registrationTime) shouldNotBeNil];
             
             __block BOOL deleteSuccess = NO;
             syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
