@@ -109,10 +109,10 @@ describe(@"SMPushClient", ^{
         [[theValue(deleteSuccess) should] beYes];
     });
     describe(@"register/delete token", ^{
-        it(@"should not register a duplicate token", ^{
+        it(@"should not register a duplicate token with overwrite flat set to NO", ^{
             __block BOOL failed = NO;
             syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
-                [defaultClient registerDeviceToken:token1 withUser:@"herc" onSuccess:^{
+                [defaultClient registerDeviceToken:token1 withUser:@"herc" overwrite:NO onSuccess:^{
                     failed = NO;
                     syncReturn(semaphore);
                 } onFailure:^(NSError *theError) {
@@ -135,10 +135,10 @@ describe(@"SMPushClient", ^{
             });
             [[theValue(failed) should] beYes];
         });
-        it(@"should register a duplicate token and the overwrite flag", ^{
+        it(@"should register a duplicate token", ^{
             __block BOOL succeeded = NO;
             syncWithSemaphore(^(dispatch_semaphore_t semaphore) {
-                [defaultClient registerDeviceToken:token1 withUser:@"herc" overwrite:YES onSuccess:^{
+                [defaultClient registerDeviceToken:token1 withUser:@"herc" onSuccess:^{
                     succeeded = YES;
                     syncReturn(semaphore);
                 } onFailure:^(NSError *theError) {

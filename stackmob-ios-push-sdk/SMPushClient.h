@@ -78,7 +78,7 @@ typedef void (^SMFailureBlock)(NSError *error);
 /** 
  Register a device token for push notifications. 
  
- Device tokens must be registered before they can be pushed to. Each token is associated with a username on the server, and this can be used to simplify pushing to users on multiple devices and platforms via sendMessage:toUsers:onSuccess:onFailure:. The username can correspond to a regular StackMob username, but it doesn't have to. You can also ignore usernames altogether by specifying an arbitrary value and working entirely with tokens. This call will fail if the token is already registered.
+ Device tokens must be registered before they can be pushed to. Each token is associated with a username on the server, and this can be used to simplify pushing to users on multiple devices and platforms via sendMessage:toUsers:onSuccess:onFailure:. The username can correspond to a regular StackMob username, but it doesn't have to. You can also ignore usernames altogether by specifying an arbitrary value and working entirely with tokens. This call will overwrite existing tokens
  
  @param token The device token for this device
  @param username A name to be associated with the 

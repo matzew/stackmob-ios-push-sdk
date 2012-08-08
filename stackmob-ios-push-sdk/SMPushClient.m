@@ -81,7 +81,7 @@ static SMPushClient *defaultClient = nil;
 
 - (void)registerDeviceToken:token withUser:(NSString *)username onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
 {
-    [self registerDeviceToken:token withUser:username overwrite:NO onSuccess:successBlock onFailure:failureBlock];
+    [self registerDeviceToken:token withUser:username overwrite:YES onSuccess:successBlock onFailure:failureBlock];
 }
 
 - (void)registerDeviceToken:token withUser:(NSString *)username overwrite:(BOOL)overwrite onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
