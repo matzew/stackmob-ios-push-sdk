@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
+#import <UIKit/UIKit.h>
 #import "SMPushClient.h"
 #import "SMPushToken.h"
 #import "SMOAuth1Client.h"
 #import "AFJSONRequestOperation.h"
 #import "SMJSONRequestOperation.h"
+#import "SMVersion.h"
 
 static SMPushClient *defaultClient = nil;
 
@@ -57,6 +59,7 @@ static SMPushClient *defaultClient = nil;
         self.oauthClient = [[SMOAuth1Client alloc] initWithBaseURL:url consumerKey:publicKey secret:privateKey];
         NSString *acceptHeader = [NSString stringWithFormat:@"application/vnd.stackmob+json; version=%@", appAPIVersion];
         [self.oauthClient setDefaultHeader:@"Accept" value:acceptHeader];
+        [self.oauthClient setDefaultHeader:@"User-Agent" value:[NSString stringWithFormat:@"StackMob/%@ (%@/%@; %@;)", SDK_VERSION, [[UIDevice currentDevice] model], [[UIDevice currentDevice] systemVersion], [[NSLocale currentLocale] localeIdentifier]]];
         [self.oauthClient setParameterEncoding:AFJSONParameterEncoding];
         if ([SMPushClient defaultClient] == nil)
         {
