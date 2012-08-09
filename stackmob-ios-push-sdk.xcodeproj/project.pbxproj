@@ -31,7 +31,6 @@
 		DEBA179B15CC935D00913CF8 /* SMPushClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBA179115CC935D00913CF8 /* SMPushClient.m */; };
 		DEBA179C15CC935D00913CF8 /* SMPushToken.h in Headers */ = {isa = PBXBuildFile; fileRef = DEBA179215CC935D00913CF8 /* SMPushToken.h */; };
 		DEBA179D15CC935D00913CF8 /* SMPushToken.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBA179315CC935D00913CF8 /* SMPushToken.m */; };
-		DEBA179E15CC935D00913CF8 /* stackmob-ios-sdk-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = DEBA179415CC935D00913CF8 /* stackmob-ios-sdk-Prefix.pch */; };
 		DEBA179F15CC935D00913CF8 /* StackMobPush.h in Headers */ = {isa = PBXBuildFile; fileRef = DEBA179515CC935D00913CF8 /* StackMobPush.h */; };
 		DEBA17A315CC945000913CF8 /* SMIntegrationTestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBA17A115CC945000913CF8 /* SMIntegrationTestHelpers.m */; };
 		DEBA17A415CC945000913CF8 /* SMPushClientIntegrationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBA17A215CC945000913CF8 /* SMPushClientIntegrationSpec.m */; };
@@ -67,7 +66,6 @@
 		DE655D9415D1C06C009CA786 /* SMVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMVersion.h; sourceTree = "<group>"; };
 		DEBA173F15CC91A500913CF8 /* libstackmob-ios-push-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libstackmob-ios-push-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEBA174215CC91A500913CF8 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		DEBA174615CC91A500913CF8 /* stackmob-ios-push-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "stackmob-ios-push-sdk-Prefix.pch"; sourceTree = "<group>"; };
 		DEBA174F15CC91A500913CF8 /* stackmob-ios-push-sdkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "stackmob-ios-push-sdkTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEBA175015CC91A500913CF8 /* SenTestingKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DEBA175215CC91A600913CF8 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -86,7 +84,6 @@
 		DEBA179115CC935D00913CF8 /* SMPushClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPushClient.m; sourceTree = "<group>"; };
 		DEBA179215CC935D00913CF8 /* SMPushToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPushToken.h; sourceTree = "<group>"; };
 		DEBA179315CC935D00913CF8 /* SMPushToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPushToken.m; sourceTree = "<group>"; };
-		DEBA179415CC935D00913CF8 /* stackmob-ios-sdk-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "stackmob-ios-sdk-Prefix.pch"; sourceTree = "<group>"; };
 		DEBA179515CC935D00913CF8 /* StackMobPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackMobPush.h; sourceTree = "<group>"; };
 		DEBA17A015CC945000913CF8 /* SMIntegrationTestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMIntegrationTestHelpers.h; sourceTree = "<group>"; };
 		DEBA17A115CC945000913CF8 /* SMIntegrationTestHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMIntegrationTestHelpers.m; sourceTree = "<group>"; };
@@ -179,7 +176,6 @@
 				DEBA179115CC935D00913CF8 /* SMPushClient.m */,
 				DEBA179215CC935D00913CF8 /* SMPushToken.h */,
 				DEBA179315CC935D00913CF8 /* SMPushToken.m */,
-				DEBA179415CC935D00913CF8 /* stackmob-ios-sdk-Prefix.pch */,
 				DEBA179515CC935D00913CF8 /* StackMobPush.h */,
 				DE655D9415D1C06C009CA786 /* SMVersion.h */,
 				DEBA174515CC91A500913CF8 /* Supporting Files */,
@@ -190,7 +186,6 @@
 		DEBA174515CC91A500913CF8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DEBA174615CC91A500913CF8 /* stackmob-ios-push-sdk-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -247,7 +242,6 @@
 				DEBA179815CC935D00913CF8 /* SMOAuth1Client.h in Headers */,
 				DEBA179A15CC935D00913CF8 /* SMPushClient.h in Headers */,
 				DEBA179C15CC935D00913CF8 /* SMPushToken.h in Headers */,
-				DEBA179E15CC935D00913CF8 /* stackmob-ios-sdk-Prefix.pch in Headers */,
 				DEBA179F15CC935D00913CF8 /* StackMobPush.h in Headers */,
 				DE655D9615D1C06C009CA786 /* SMVersion.h in Headers */,
 			);
