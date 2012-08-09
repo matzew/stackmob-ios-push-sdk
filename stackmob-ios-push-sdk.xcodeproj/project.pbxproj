@@ -539,8 +539,8 @@
 			baseConfigurationReference = 14A9F201FA8347C5B1D4D6C3 /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/stackmob_ios_push_sdk.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "stackmob-ios-push-sdk/stackmob-ios-push-sdk-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -552,8 +552,8 @@
 			baseConfigurationReference = 14A9F201FA8347C5B1D4D6C3 /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/stackmob_ios_push_sdk.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "stackmob-ios-push-sdk/stackmob-ios-push-sdk-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -568,8 +568,8 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "stackmob-ios-push-sdk/stackmob-ios-push-sdk-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "stackmob-ios-push-sdkTests/stackmob-ios-push-sdkTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_AFTER_BUILD = YES;
@@ -585,8 +585,8 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "stackmob-ios-push-sdk/stackmob-ios-push-sdk-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "stackmob-ios-push-sdkTests/stackmob-ios-push-sdkTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_AFTER_BUILD = YES;
