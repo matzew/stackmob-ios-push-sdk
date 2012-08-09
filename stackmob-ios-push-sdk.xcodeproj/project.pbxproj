@@ -178,16 +178,8 @@
 				DEBA179315CC935D00913CF8 /* SMPushToken.m */,
 				DEBA179515CC935D00913CF8 /* StackMobPush.h */,
 				DE655D9415D1C06C009CA786 /* SMVersion.h */,
-				DEBA174515CC91A500913CF8 /* Supporting Files */,
 			);
 			path = "stackmob-ios-push-sdk";
-			sourceTree = "<group>";
-		};
-		DEBA174515CC91A500913CF8 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		DEBA175815CC91A600913CF8 /* stackmob-ios-push-sdkTests */ = {

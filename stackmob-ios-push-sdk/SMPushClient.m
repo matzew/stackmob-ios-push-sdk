@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2012 StackMob
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -79,12 +79,12 @@ static SMPushClient *defaultClient = nil;
         return [token isMemberOfClass:[SMPushToken class]] ? ((SMPushToken *)token).type : TOKEN_TYPE_IOS;
 }
 
-- (void)registerDeviceToken:token withUser:(NSString *)username onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
+- (void)registerDeviceToken:(id)token withUser:(NSString *)username onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
 {
     [self registerDeviceToken:token withUser:username overwrite:YES onSuccess:successBlock onFailure:failureBlock];
 }
 
-- (void)registerDeviceToken:token withUser:(NSString *)username overwrite:(BOOL)overwrite onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
+- (void)registerDeviceToken:(id)token withUser:(NSString *)username overwrite:(BOOL)overwrite onSuccess:(SMSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
 {
     NSString *tokenString = [self tokenStringFromToken:token];
     NSString *type = [self tokenTypeFromToken:token];
