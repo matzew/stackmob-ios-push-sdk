@@ -162,6 +162,32 @@
 <p><code>SMPushClient</code> exposes a defaultClient for applications which use a globally available client to share configuration settings.</p>
 
 <p>Include <code>#import "StackMobPush.h"</code> in your application files to gain access to <code>SMPushClient</code> and <a href="../Classes/SMPushToken.html">SMPushToken</a> methods.</p>
+
+<h2>Setting Up A Basic Push Application</h2>
+
+<p>To include the StackMob Push SDK into your application using Cocoapods, add <strong>pod &lsquo;StackMobPush&rsquo;, &lsquo;1.0.0&rsquo;</strong> to your Podfile.</p>
+
+<p>The first thing you need to do is get a push token for your device.  You can do this by reading through the <a href="https://www.stackmob.com/devcenter/docs/Setting-up-iOS-Push">Push API</a> tutorial on StackMob.  Stop When you get to the <strong>Send Push Messages</strong> section.</p>
+
+<p>Next, initialize a StackMob push client:</p>
+
+<pre><code>// public and private keys refer to your StackMob app's credentials.  Get them from the __Manage App Info__ link in the left column on the Dashboard
+SMPushClient *pushClient = [[SMPushClient alloc] initWithAPIVersion:@"0" publicKey:@"publicKey" privateKey:@"privateKey"];
+</code></pre>
+
+<p>Now register the device token with a user:</p>
+
+<pre><code>[pushClient registerDeviceToken:@"12345" withUser:@"randomuser" onSuccess:createdSuccessBlock onFailure:createdFailureBlock];
+</code></pre>
+
+<p>You are now ready to broadcast messages!  You can use any of the following methods to send push notifications:</p>
+
+<ul>
+<li><a href="#//api/name/broadcastMessage:onSuccess:onFailure:">broadcastMessage:onSuccess:onFailure:</a></li>
+<li><a href="#//api/name/sendMessage:toUsers:onSuccess:onFailure:">sendMessage:toUsers:onSuccess:onFailure:</a></li>
+<li><a href="#//api/name/sendMessage:toTokens:onSuccess:onFailure:">sendMessage:toTokens:onSuccess:onFailure:</a></li>
+</ul>
+
 					</div>
 					
 					
