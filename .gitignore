@@ -18,3 +18,4 @@ profile
 .idea/*
 integration\ tests/StackMobCredentials.plist
 AppledocSettings.plist
+build/*
