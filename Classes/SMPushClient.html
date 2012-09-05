@@ -165,27 +165,53 @@
 
 <h2>Setting Up A Basic Push Application</h2>
 
-<p>To include the StackMob Push SDK into your application using Cocoapods, add <strong>pod &lsquo;StackMobPush&rsquo;, &lsquo;1.0.0&rsquo;</strong> to your Podfile.</p>
+<h3>Download the SDK</h3>
 
-<p>The first thing you need to do is get a push token for your device.  You can do this by reading through the <a href="https://www.stackmob.com/devcenter/docs/Setting-up-iOS-Push">Push API</a> tutorial on StackMob.  Stop When you get to the <strong>Send Push Messages</strong> section.</p>
+<p>You can download and include a static library of the push SDK or use CocoaPods to install it.</p>
 
-<p>Next, initialize a StackMob push client:</p>
+<p><a href="https://github.com/downloads/stackmob/stackmob-ios-push-sdk/stackmob-ios-push-sdk-v1.0.0.zip">Download the Static Library zip</a>, then unzip and copy the entire folder into your XCode project.</p>
 
-<pre><code>// public and private keys refer to your StackMob app's credentials.  Get them from the __Manage App Info__ link in the left column on the Dashboard
-SMPushClient *pushClient = [[SMPushClient alloc] initWithAPIVersion:@"0" publicKey:@"publicKey" privateKey:@"privateKey"];
+<p>To include the StackMob Push SDK into your application using Cocoapods, add <strong>pod &lsquo;StackMobPush&rsquo;, &lsquo;1.0.0&rsquo;</strong> to your Podfile and re-install your Pods.</p>
+
+<h3>Upload your certs to StackMob</h3>
+
+<p>You can do this by reading through the <a href="https://www.stackmob.com/devcenter/docs/Setting-up-iOS-Push">Push API</a> tutorial on StackMob.</p>
+
+<h3>Get a device token and initialize your push client</h3>
+
+<p>Set up an iOS app to register for remote notifications by calling <code>registerForRemoteNotificationTypes</code> when your app launches, most likely in <code>application:didFinishLaunchingWithOptions:</code>.  Also initialize a push client.</p>
+
+<pre><code>// In application:didFinishLaunchingWithOptions:
+
+// Assuming you declared the variable `SMPushClient *pushclient;`
+// Public and private keys refer to your StackMob app's credentials.  Get them from the __Manage App Info__ link in the left column on the Dashboard
+pushClient = [[SMPushClient alloc] initWithAPIVersion:@"0" publicKey:@"publicKey" privateKey:@"privateKey"];
+
+[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+    (UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
 </code></pre>
 
-<p>Now register the device token with a user:</p>
+<p>Next, implement the method <code>application:didRegisterForRemoteNotificationsWithDeviceToken:</code> which will be called when your app successfully registers with APNS.</p>
 
-<pre><code>[pushClient registerDeviceToken:@"12345" withUser:@"randomuser" onSuccess:createdSuccessBlock onFailure:createdFailureBlock];
+<pre><code>- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"&lt;&gt;"]];
+    token = [[token componentsSeparatedByString:@" "] componentsJoinedByString:@""];
+    // Persist your user's accessToken here if you need
+
+    // the user parameter is simply an arbitrary string to help you map a name to the device token
+    [pushClient registerDeviceToken:token withUser:@"randomuser" onSuccess:createdSuccessBlock onFailure:createdFailureBlock];
+}
 </code></pre>
+
+<h3>Send push messages</h3>
 
 <p>You are now ready to broadcast messages!  You can use any of the following methods to send push notifications:</p>
 
 <ul>
-<li><a href="#//api/name/broadcastMessage:onSuccess:onFailure:">broadcastMessage:onSuccess:onFailure:</a></li>
-<li><a href="#//api/name/sendMessage:toUsers:onSuccess:onFailure:">sendMessage:toUsers:onSuccess:onFailure:</a></li>
-<li><a href="#//api/name/sendMessage:toTokens:onSuccess:onFailure:">sendMessage:toTokens:onSuccess:onFailure:</a></li>
+<li>broadcastMessage:onSuccess:onFailure:</li>
+<li>sendMessage:toUsers:onSuccess:onFailure:</li>
+<li>sendMessage:toTokens:onSuccess:onFailure:</li>
 </ul>
 
 					</div>
@@ -397,7 +423,7 @@ SMPushClient *pushClient = [[SMPushClient alloc] initWithAPIVersion:@"0" publicK
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>token</em></dt>
-			<dd><p>A token represented by either a device token string or an <a href="../Classes/SMPushToken.html">SMPushToken</a> object.</p></dd>
+			<dd><p>A token represented by either a device token string or an SMPushToken object.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -476,7 +502,7 @@ SMPushClient *pushClient = [[SMPushClient alloc] initWithAPIVersion:@"0" publicK
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>If successful the onSuccess block will be called with an NSDictionary mapping username strings to NSArrays of <a href="../Classes/SMPushToken.html">SMPushToken</a> objects.</p>
+		<p>If successful the onSuccess block will be called with an NSDictionary mapping username strings to NSArrays of SMPushToken objects.</p>
 	</div>
 	
 	
@@ -659,7 +685,7 @@ SMPushClient *pushClient = [[SMPushClient alloc] initWithAPIVersion:@"0" publicK
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Device tokens must be registered before they can be pushed to. Each token is associated with a username on the server, and this can be used to simplify pushing to users on multiple devices and platforms via <a href="#//api/name/sendMessage:toUsers:onSuccess:onFailure:">sendMessage:toUsers:onSuccess:onFailure:</a>. The username can correspond to a regular StackMob username, but it doesn&rsquo;t have to. You can also ignore usernames altogether by specifying an arbitrary value and working entirely with tokens. This call will overwrite existing tokens.</p>
+		<p>Device tokens must be registered before they can be pushed to. Each token is associated with a username on the server, and this can be used to simplify pushing to users on multiple devices and platforms via sendMessage:toUsers:onSuccess:onFailure:. The username can correspond to a regular StackMob username, but it doesn&rsquo;t have to. You can also ignore usernames altogether by specifying an arbitrary value and working entirely with tokens. This call will overwrite existing tokens.</p>
 	</div>
 	
 	
@@ -730,7 +756,7 @@ SMPushClient *pushClient = [[SMPushClient alloc] initWithAPIVersion:@"0" publicK
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Device tokens must be registered before they can be pushed to. Each token is associated with a username on the server, and this can be used to simplify pushing to users on multiple devices and platforms via <a href="#//api/name/sendMessage:toUsers:onSuccess:onFailure:">sendMessage:toUsers:onSuccess:onFailure:</a>. The username can correspond to a regular StackMob username, but it doesn&rsquo;t have to. You can also ignore usernames altogether by specifying an arbitrary value and working entirely with tokens. This call will fail if the token is already registered unless the overwrite flag is set.</p>
+		<p>Device tokens must be registered before they can be pushed to. Each token is associated with a username on the server, and this can be used to simplify pushing to users on multiple devices and platforms via sendMessage:toUsers:onSuccess:onFailure:. The username can correspond to a regular StackMob username, but it doesn&rsquo;t have to. You can also ignore usernames altogether by specifying an arbitrary value and working entirely with tokens. This call will fail if the token is already registered unless the overwrite flag is set.</p>
 	</div>
 	
 	
@@ -773,7 +799,7 @@ SMPushClient *pushClient = [[SMPushClient alloc] initWithAPIVersion:@"0" publicK
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>tokens</em></dt>
-			<dd><p>An array containing either device token strings or <a href="../Classes/SMPushToken.html">SMPushToken</a> objects to push to.</p></dd>
+			<dd><p>An array containing either device token strings or SMPushToken objects to push to.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -796,7 +822,7 @@ SMPushClient *pushClient = [[SMPushClient alloc] initWithAPIVersion:@"0" publicK
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The tokens must have been registered with StackMob by <a href="#//api/name/registerDeviceToken:withUser:onSuccess:onFailure:">registerDeviceToken:withUser:onSuccess:onFailure:</a></p>
+		<p>The tokens must have been registered with StackMob by registerDeviceToken:withUser:onSuccess:onFailure:</p>
 	</div>
 	
 	
@@ -862,7 +888,7 @@ SMPushClient *pushClient = [[SMPushClient alloc] initWithAPIVersion:@"0" publicK
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The users must have been previously registered by <a href="#//api/name/registerDeviceToken:withUser:onSuccess:onFailure:">registerDeviceToken:withUser:onSuccess:onFailure:</a></p>
+		<p>The users must have been previously registered by registerDeviceToken:withUser:onSuccess:onFailure:</p>
 	</div>
 	
 	
@@ -892,7 +918,7 @@ SMPushClient *pushClient = [[SMPushClient alloc] initWithAPIVersion:@"0" publicK
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2012 StackMob. All rights reserved. (Last updated: 2012-08-09)</span><br />
+						<p><span class="copyright">&copy; 2012 StackMob. All rights reserved. (Last updated: 2012-09-05)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 789)</a>.</span></p>
 						
