@@ -6,6 +6,26 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		DEE9162315F7D8E700C9DE74 /* Package */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DEE9162415F7D8E700C9DE74 /* Build configuration list for PBXAggregateTarget "Package" */;
+			buildPhases = (
+				DEE9162915F7D93A00C9DE74 /* Build Targets */,
+				DEE9162A15F7D99B00C9DE74 /* Copy Pods */,
+				DEE9162B15F7D9AC00C9DE74 /* Copy Headers */,
+				DEE9163615F7D9E300C9DE74 /* Merge Libs */,
+				DEE9164515F7DB8D00C9DE74 /* Copy Files to Build Dir */,
+				DEE9164615F7DDEC00C9DE74 /* Zip It Up */,
+			);
+			dependencies = (
+				DEE9162815F7D92C00C9DE74 /* PBXTargetDependency */,
+			);
+			name = Package;
+			productName = Package;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		2C4BF99656A94AA19588707A /* libPods-stackmob-ios-push-sdkTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF7CF4D9DC24DFBA06A36B1 /* libPods-stackmob-ios-push-sdkTests.a */; };
 		56404F2A15CCA439009CCAC1 /* StackMobCredentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56404F2915CCA439009CCAC1 /* StackMobCredentials.plist */; };
@@ -36,6 +56,16 @@
 		DEBA17A415CC945000913CF8 /* SMPushClientIntegrationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBA17A215CC945000913CF8 /* SMPushClientIntegrationSpec.m */; };
 		DEBA17A615CC945B00913CF8 /* StackMobCredentials.plist.example in Resources */ = {isa = PBXBuildFile; fileRef = DEBA17A515CC945B00913CF8 /* StackMobCredentials.plist.example */; };
 		DEBA17B515CC98EE00913CF8 /* libstackmob-ios-push-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBA173F15CC91A500913CF8 /* libstackmob-ios-push-sdk.a */; };
+		DEE9162C15F7D9CD00C9DE74 /* SMJSONRequestOperation.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = DEBA178C15CC935D00913CF8 /* SMJSONRequestOperation.h */; };
+		DEE9162D15F7D9CD00C9DE74 /* SMJSONRequestOperation.m in Copy Headers */ = {isa = PBXBuildFile; fileRef = DEBA178D15CC935D00913CF8 /* SMJSONRequestOperation.m */; };
+		DEE9162E15F7D9CD00C9DE74 /* SMOAuth1Client.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = DEBA178E15CC935D00913CF8 /* SMOAuth1Client.h */; };
+		DEE9162F15F7D9CD00C9DE74 /* SMOAuth1Client.m in Copy Headers */ = {isa = PBXBuildFile; fileRef = DEBA178F15CC935D00913CF8 /* SMOAuth1Client.m */; };
+		DEE9163015F7D9CD00C9DE74 /* SMPushClient.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = DEBA179015CC935D00913CF8 /* SMPushClient.h */; };
+		DEE9163115F7D9CD00C9DE74 /* SMPushClient.m in Copy Headers */ = {isa = PBXBuildFile; fileRef = DEBA179115CC935D00913CF8 /* SMPushClient.m */; };
+		DEE9163215F7D9CD00C9DE74 /* SMPushToken.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = DEBA179215CC935D00913CF8 /* SMPushToken.h */; };
+		DEE9163315F7D9CD00C9DE74 /* SMPushToken.m in Copy Headers */ = {isa = PBXBuildFile; fileRef = DEBA179315CC935D00913CF8 /* SMPushToken.m */; };
+		DEE9163415F7D9CD00C9DE74 /* StackMobPush.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = DEBA179515CC935D00913CF8 /* StackMobPush.h */; };
+		DEE9163515F7D9CD00C9DE74 /* SMVersion.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = DE655D9415D1C06C009CA786 /* SMVersion.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +83,37 @@
 			remoteGlobalIDString = DEBA173E15CC91A500913CF8;
 			remoteInfo = "stackmob-ios-push-sdk";
 		};
+		DEE9162715F7D92C00C9DE74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEBA173615CC91A500913CF8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DEBA173E15CC91A500913CF8;
+			remoteInfo = "stackmob-ios-push-sdk";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DEE9162B15F7D9AC00C9DE74 /* Copy Headers */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Headers;
+			dstSubfolderSpec = 16;
+			files = (
+				DEE9162C15F7D9CD00C9DE74 /* SMJSONRequestOperation.h in Copy Headers */,
+				DEE9162D15F7D9CD00C9DE74 /* SMJSONRequestOperation.m in Copy Headers */,
+				DEE9162E15F7D9CD00C9DE74 /* SMOAuth1Client.h in Copy Headers */,
+				DEE9162F15F7D9CD00C9DE74 /* SMOAuth1Client.m in Copy Headers */,
+				DEE9163015F7D9CD00C9DE74 /* SMPushClient.h in Copy Headers */,
+				DEE9163115F7D9CD00C9DE74 /* SMPushClient.m in Copy Headers */,
+				DEE9163215F7D9CD00C9DE74 /* SMPushToken.h in Copy Headers */,
+				DEE9163315F7D9CD00C9DE74 /* SMPushToken.m in Copy Headers */,
+				DEE9163415F7D9CD00C9DE74 /* StackMobPush.h in Copy Headers */,
+				DEE9163515F7D9CD00C9DE74 /* SMVersion.h in Copy Headers */,
+			);
+			name = "Copy Headers";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0AF7CF4D9DC24DFBA06A36B1 /* libPods-stackmob-ios-push-sdkTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-stackmob-ios-push-sdkTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -324,6 +384,7 @@
 				DEBA173E15CC91A500913CF8 /* stackmob-ios-push-sdk */,
 				DEBA174E15CC91A500913CF8 /* stackmob-ios-push-sdkTests */,
 				DEBA176D15CC91B400913CF8 /* integration-tests */,
+				DEE9162315F7D8E700C9DE74 /* Package */,
 			);
 		};
 /* End PBXProject section */
@@ -418,6 +479,76 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		DEE9162915F7D93A00C9DE74 /* Build Targets */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Targets";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#build the targets\nxcodebuild -workspace stackmob-ios-push-sdk.xcworkspace -scheme \"stackmob-ios-push-sdk\" -sdk iphonesimulator -configuration Release build\nxcodebuild -workspace stackmob-ios-push-sdk.xcworkspace -scheme \"stackmob-ios-push-sdk\" -sdk iphoneos -configuration Release build";
+		};
+		DEE9162A15F7D99B00C9DE74 /* Copy Pods */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"";
+		};
+		DEE9163615F7D9E300C9DE74 /* Merge Libs */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Merge Libs";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# make a new output folder\nmkdir -p ${PROJECT_DIR}/build/${SDK_VERSION}/StackMobPush-v${SDK_VERSION}\n# combine lib files for various platforms into one\nlipo -create \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/libstackmob-ios-push-sdk.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/libstackmob-ios-push-sdk.a\" -output \"${PROJECT_DIR}/build/${SDK_VERSION}/StackMobPush-v${SDK_VERSION}/libstackmob-push-v${SDK_VERSION}.a\"";
+		};
+		DEE9164515F7DB8D00C9DE74 /* Copy Files to Build Dir */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Files to Build Dir";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "// make directories for Headers and Pods\nmkdir -p ${PROJECT_DIR}/build/${SDK_VERSION}/StackMobPush-v${SDK_VERSION}/Headers\n#mkdir -p ${PROJECT_DIR}/build/${SDK_VERSION}/StackMob-v${SDK_VERSION}/Pods\n\n// copy Headers and Pods from builds\n#cp \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/libpods.a\" \"${PROJECT_DIR}/build/${SDK_VERSION}/StackMob-v${SDK_VERSION}/\"\ncp -rf \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/Headers/\" \"${PROJECT_DIR}/build/${SDK_VERSION}/StackMobPush-v${SDK_VERSION}/Headers/\"\ncp -rf \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/Pods/\" \"${PROJECT_DIR}/build/${SDK_VERSION}/StackMobPush-v${SDK_VERSION}/Headers/\"\n";
+		};
+		DEE9164615F7DDEC00C9DE74 /* Zip It Up */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Zip It Up";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"${PROJECT_DIR}/build/${SDK_VERSION}\"\n\nzip -r \"stackmob-ios-push-sdk-v${SDK_VERSION}.zip\" \"StackMobPush-v${SDK_VERSION}\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -461,6 +592,11 @@
 			isa = PBXTargetDependency;
 			target = DEBA173E15CC91A500913CF8 /* stackmob-ios-push-sdk */;
 			targetProxy = DEBA17AD15CC97E000913CF8 /* PBXContainerItemProxy */;
+		};
+		DEE9162815F7D92C00C9DE74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DEBA173E15CC91A500913CF8 /* stackmob-ios-push-sdk */;
+			targetProxy = DEE9162715F7D92C00C9DE74 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -620,6 +756,22 @@
 			};
 			name = Release;
 		};
+		DEE9162515F7D8E700C9DE74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDK_VERSION = 1.0.0;
+			};
+			name = Debug;
+		};
+		DEE9162615F7D8E700C9DE74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDK_VERSION = 1.0.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -655,6 +807,15 @@
 			buildConfigurations = (
 				DEBA177D15CC91B400913CF8 /* Debug */,
 				DEBA177E15CC91B400913CF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DEE9162415F7D8E700C9DE74 /* Build configuration list for PBXAggregateTarget "Package" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEE9162515F7D8E700C9DE74 /* Debug */,
+				DEE9162615F7D8E700C9DE74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

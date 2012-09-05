@@ -41,22 +41,50 @@ typedef void (^SMFailureBlock)(NSError *error);
  
  `SMPushClient` exposes a defaultClient for applications which use a globally available client to share configuration settings.
  
- Include `#import "StackMobPush.h"` in your application files to gain access to `SMPushClient` and SMPushToken methods.
+ Include `#import "StackMobPush.h"` in your application files to gain access to `SMPushClient` and <SMPushToken> methods.
  
  ## Setting Up A Basic Push Application ##
  
- To include the StackMob Push SDK into your application using Cocoapods, add **pod 'StackMobPush', '1.0.0'** to your Podfile.
+ ### Download the SDK ###
  
- The first thing you need to do is get a push token for your device.  You can do this by reading through the [Push API](https://www.stackmob.com/devcenter/docs/Setting-up-iOS-Push) tutorial on StackMob.  Stop When you get to the **Send Push Messages** section.
+ You can download and include a static library of the push SDK or use CocoaPods to install it.
  
- Next, initialize a StackMob push client:
+ [Download the Static Library zip](https://github.com/downloads/stackmob/stackmob-ios-push-sdk/stackmob-ios-push-sdk-v1.0.0.zip), then unzip and copy the entire folder into your XCode project.
  
-    // public and private keys refer to your StackMob app's credentials.  Get them from the __Manage App Info__ link in the left column on the [Dashboard](https://www.stackmob.com/platform/)
-    SMPushClient *pushClient = [[SMPushClient alloc] initWithAPIVersion:@"0" publicKey:@"publicKey" privateKey:@"privateKey"];
+ To include the StackMob Push SDK into your application using Cocoapods, add **pod 'StackMobPush', '1.0.0'** to your Podfile and re-install your Pods.
  
- Now register the device token with a user:
+ ### Upload your certs to StackMob ###
  
-    [pushClient registerDeviceToken:@"12345" withUser:@"randomuser" onSuccess:createdSuccessBlock onFailure:createdFailureBlock];
+ You can do this by reading through the [Push API](https://www.stackmob.com/devcenter/docs/Setting-up-iOS-Push) tutorial on StackMob.
+ 
+ ### Get a device token and initialize your push client ###
+ 
+ Set up an iOS app to register for remote notifications by calling `registerForRemoteNotificationTypes` when your app launches, most likely in `application:didFinishLaunchingWithOptions:`.  Also initialize a push client.
+    
+    
+    // In application:didFinishLaunchingWithOptions:
+ 
+    // Assuming you declared the variable `SMPushClient *pushclient;`
+    // Public and private keys refer to your StackMob app's credentials.  Get them from the __Manage App Info__ link in the left column on the [Dashboard](https://www.stackmob.com/platform/)
+    pushClient = [[SMPushClient alloc] initWithAPIVersion:@"0" publicKey:@"publicKey" privateKey:@"privateKey"];
+ 
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+        (UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+ 
+ 
+ Next, implement the method `application:didRegisterForRemoteNotificationsWithDeviceToken:` which will be called when your app successfully registers with APNS.
+
+    - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+    {
+        NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+        token = [[token componentsSeparatedByString:@" "] componentsJoinedByString:@""];
+        // Persist your user's accessToken here if you need
+ 
+        // the user parameter is simply an arbitrary string to help you map a name to the device token
+        [pushClient registerDeviceToken:token withUser:@"randomuser" onSuccess:createdSuccessBlock onFailure:createdFailureBlock];
+    }
+ 
+ ### Send push messages ###
  
  You are now ready to broadcast messages!  You can use any of the following methods to send push notifications:
  
