@@ -49,9 +49,9 @@ typedef void (^SMFailureBlock)(NSError *error);
  
  You can download and include a static library of the push SDK or use CocoaPods to install it.
  
- [Download the Static Library zip](https://github.com/downloads/stackmob/stackmob-ios-push-sdk/stackmob-ios-push-sdk-v1.0.0.zip), then unzip and copy the entire folder into your XCode project.
+ [Download the Static Library zip](https://github.com/downloads/stackmob/stackmob-ios-push-sdk/stackmob-ios-push-sdk-v1.0.1.zip), then unzip and copy the entire folder into your XCode project.
  
- To include the StackMob Push SDK into your application using Cocoapods, add **pod 'StackMobPush', '1.0.0'** to your Podfile and re-install your Pods.
+ To include the StackMob Push SDK into your application using Cocoapods, add **pod 'StackMobPush', '1.0.1'** to your Podfile and re-install your Pods.
  
  ### Upload your certs to StackMob ###
  
