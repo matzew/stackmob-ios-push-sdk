@@ -48,7 +48,7 @@ static SMPushClient *defaultClient = nil;
 }
 - (id)initWithAPIVersion:(NSString *)appAPIVersion publicKey:(NSString *)publicKey privateKey:(NSString *)privateKey pushHost:(NSString *)pushHost;
 {
-    self = [self init];
+    self = [super init];
     if (self)
     {
         self.appAPIVersion = appAPIVersion;
@@ -170,6 +170,8 @@ static SMPushClient *defaultClient = nil;
 - (void)enqueueRequest:(NSURLRequest *)request onSuccess:(SMResultSuccessBlock)successBlock onFailure:(SMFailureBlock)failureBlock
 {
     AFJSONRequestOperation *op = [SMJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        // record time diff here?
+        [self.oauthClient recordServerTimeDiffFromHeader:[[response allHeaderFields] valueForKey:@"Date"]];
         successBlock(JSON);
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         failureBlock([NSError errorWithDomain:@"SMError" code:[response statusCode] userInfo:JSON]);

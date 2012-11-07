@@ -1,10 +1,8 @@
 PODS:
   - AFNetworking (1.0RC1)
   - Kiwi (1.0.0)
-  - stl-oauth-client (1.1.0):
-    - AFNetworking (~> 1.0RC1)
 
 DEPENDENCIES:
+  - AFNetworking (= 1.0RC1)
   - Kiwi (from `https://github.com/allending/Kiwi.git', commit `15a2936ac30117ab3bacca7fbd0d952b6dad37f8')
   - Kiwi (from `https://github.com/allending/Kiwi.git', commit `15a2936ac30117ab3bacca7fbd0d952b6dad37f8')
-  - stl-oauth-client (from `https://github.com/jonah-carbonfive/stl-oauth-client.git', commit `b4d89b9ed6d48ca612ede7dc19a198e3e27cd893')
